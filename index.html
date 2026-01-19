@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ziyakha Engineering</title>
-  <!-- Corrected path since style.css is in root -->
+
+  <!-- Make sure style.css is in the same folder as this HTML file -->
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo">
-      <h1>Ziyakha Engineering</h1>
-      <p>Safety First, Excellence Always</p>
+    <div class="container header-inner">
+      <div class="logo">
+        <h1>Ziyakha Engineering</h1>
+        <p>Safety First, Excellence Always</p>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#values">Values</a></li>
+          <li><a href="#objectives">Objectives</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#advantage">Advantage</a></li>
+          <li><a href="#ceo">CEO</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#values">Values</a></li>
-        <li><a href="#objectives">Objectives</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#advantage">Advantage</a></li>
-        <li><a href="#ceo">CEO</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Black Youth Female-Owned Safety Solutions Company</h2>
-    <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+    <div class="container">
+      <h2>Black Youth Female-Owned Safety Solutions Company</h2>
+      <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+    </div>
   </section>
 
   <!-- Vision -->
-  <section id="vision">
+  <section id="vision" class="container section">
     <h2>Vision</h2>
     <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
   </section>
 
   <!-- Mission -->
-  <section id="mission">
+  <section id="mission" class="container section">
     <h2>Mission Statement</h2>
     <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
   </section>
 
   <!-- Values -->
-  <section id="values">
+  <section id="values" class="container section">
     <h2>Value Statement</h2>
     <ul>
       <li><strong>Safety First:</strong> Prioritize health and safety for all.</li>
@@ -57,7 +64,7 @@
   </section>
 
   <!-- Objectives -->
-  <section id="objectives">
+  <section id="objectives" class="container section">
     <h2>Strategic Objectives</h2>
     <ul>
       <li>Provide ongoing training for employees.</li>
@@ -70,7 +77,7 @@
   </section>
 
   <!-- Services -->
-  <section id="services">
+  <section id="services" class="container section">
     <h2>Our Services</h2>
     <div class="service-columns">
       <div>
@@ -102,7 +109,7 @@
   </section>
 
   <!-- Strategic Advantage -->
-  <section id="advantage">
+  <section id="advantage" class="container section">
     <h2>Strategic Advantage</h2>
     <ul>
       <li>Skilled training workforce.</li>
@@ -114,13 +121,13 @@
   </section>
 
   <!-- CEO -->
-  <section id="ceo">
+  <section id="ceo" class="container section">
     <h2>Chief Executive Officer</h2>
     <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
   </section>
 
   <!-- Contact -->
-  <footer id="contact">
+  <footer id="contact" class="container footer">
     <h2>Contact Us</h2>
     <p><strong>CEO:</strong> Lehlohonolo Magoete</p>
     <p>📞 +27 65 936 4152</p>
@@ -128,5 +135,6 @@
     <p>🌐 www.ziyakhaengineering</p>
     <p>Facebook: Ziyakha Engineering</p>
   </footer>
+
 </body>
 </html>
