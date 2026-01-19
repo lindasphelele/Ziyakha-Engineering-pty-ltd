@@ -1,16 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ziyakha Engineering</title>
 
-  <!-- Make sure style.css is in the same folder as this HTML file -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Embedded CSS so it works immediately without external files -->
+  <style>
+    /* Reset & variables */
+    :root{
+      --bg: #f9f9f9;
+      --brand-dark: #004466;
+      --brand-mid: #0077aa;
+      --card-bg: #eef6ff;
+      --muted: #666666;
+      --max-width: 1100px;
+      --pad: 16px;
+      --brand-font: "Segoe UI", Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:var(--brand-font);
+      line-height:1.6;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--pad);}
 
+    /* Header */
+    header{
+      background:var(--brand-dark);
+      color:#fff;
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:100;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+    .header-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;flex-wrap:wrap}
+    .logo h1{font-size:1.1rem;margin-bottom:2px}
+    .logo p{font-size:0.85rem;color:rgba(255,255,255,0.9);margin:0}
+
+    nav ul{list-style:none;display:flex;gap:12px;align-items:center;margin:0;padding:0}
+    nav a{color:#fff;text-decoration:none;font-weight:700;padding:6px 8px;border-radius:6px;display:inline-block}
+    nav a:hover{background:rgba(255,255,255,0.05)}
+
+    /* Hero with diagonal shapes */
+    .hero{position:relative;overflow:hidden;padding:48px 0 64px;min-height:360px;display:flex;align-items:flex-start}
+    .hero::before{
+      content:"";
+      position:absolute;top:-8%;right:-12%;width:78%;height:120%;background:var(--brand-mid);transform:rotate(-18deg);z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;bottom:-10%;left:-6%;width:56%;height:82%;background:#dcdcdc;transform:rotate(-18deg);z-index:0;
+    }
+    .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;gap:10px}
+    .hero h2{font-size:1.6rem;color:#fff;margin-bottom:6px;font-weight:700}
+    .hero p{color:rgba(255,255,255,0.95);max-width:800px}
+
+    /* Sections */
+    .section{padding:28px 0;border-bottom:1px solid #f3f3f3}
+    .section h2{color:var(--brand-dark);margin-bottom:12px;border-bottom:3px solid var(--brand-mid);display:inline-block;padding-bottom:0.25rem}
+    ul{margin-left:1.25rem;margin-top:0.5rem;color:#333}
+    .service-columns{display:flex;gap:12px;flex-wrap:wrap}
+    .service-columns > div{flex:1 1 300px;background:var(--card-bg);padding:12px;border-radius:8px}
+
+    /* Footer */
+    footer{background:var(--brand-dark);color:#fff;text-align:center;padding:18px 0}
+    footer p{margin:6px 0;color:rgba(255,255,255,0.9)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      nav ul{flex-direction:column;gap:6px}
+      .service-columns{flex-direction:column}
+      .hero{padding:28px 0 48px;min-height:320px}
+    }
+
+    /* small visible indicator to confirm stylesheet is loaded */
+    body::after{
+      content:"";
+      position:fixed;right:8px;bottom:8px;width:8px;height:8px;background:rgba(0,0,0,0.03);border-radius:2px;pointer-events:none;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container header-inner">
       <div class="logo">
@@ -33,108 +110,102 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Black Youth Female-Owned Safety Solutions Company</h2>
+        <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+      </div>
+    </section>
+
+    <section id="vision" class="container section">
+      <h2>Vision</h2>
+      <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
+    </section>
+
+    <section id="mission" class="container section">
+      <h2>Mission Statement</h2>
+      <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
+    </section>
+
+    <section id="values" class="container section">
+      <h2>Value Statement</h2>
+      <ul>
+        <li><strong>Safety First:</strong> Prioritize health and safety for all.</li>
+        <li><strong>Quality & Reliability:</strong> Training materials meet international standards.</li>
+        <li><strong>Community Empowerment:</strong> Uplifting communities through jobs and training.</li>
+      </ul>
+    </section>
+
+    <section id="objectives" class="container section">
+      <h2>Strategic Objectives</h2>
+      <ul>
+        <li>Provide ongoing training for employees.</li>
+        <li>Implement rigorous health and safety protocols.</li>
+        <li>Stay compliant with international standards.</li>
+        <li>Develop diversified products and services.</li>
+        <li>Collaborate with contractors and investors.</li>
+        <li>Expand into new markets.</li>
+      </ul>
+    </section>
+
+    <section id="services" class="container section">
+      <h2>Our Services</h2>
+      <div class="service-columns">
+        <div>
+          <h3>Construction Safety</h3>
+          <ul>
+            <li>OHSA</li>
+            <li>First Aid</li>
+            <li>Fire Fighting</li>
+            <li>SHERep</li>
+            <li>HIRA</li>
+            <li>Working on Heights</li>
+            <li>Scaffolding</li>
+            <li>Safety Audits</li>
+            <li>Safety Files</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Mining Safety</h3>
+          <ul>
+            <li>MHSA</li>
+            <li>First Aid</li>
+            <li>Fire Prevention</li>
+            <li>Incident Investigation</li>
+            <li>Confined Spaces</li>
+            <li>Legal Liability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantage" class="container section">
+      <h2>Strategic Advantage</h2>
+      <ul>
+        <li>Skilled training workforce.</li>
+        <li>Cost efficiency through lean principles.</li>
+        <li>Customer-focused tailored solutions.</li>
+        <li>Continuous innovation and R&D.</li>
+        <li>Flexible learning options (E-Learning, Webinars, In-Classroom).</li>
+      </ul>
+    </section>
+
+    <section id="ceo" class="container section">
+      <h2>Chief Executive Officer</h2>
+      <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
+    </section>
+  </main>
+
+  <footer id="contact">
     <div class="container">
-      <h2>Black Youth Female-Owned Safety Solutions Company</h2>
-      <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+      <h2 style="color:#fff; margin-bottom:8px;">Contact Us</h2>
+      <p style="color:rgba(255,255,255,0.95)"><strong>CEO:</strong> Lehlohonolo Magoete</p>
+      <p style="color:rgba(255,255,255,0.95)">📞 +27 65 936 4152</p>
+      <p style="color:rgba(255,255,255,0.95)">📧 ziyakhaengineering@gmail.com</p>
+      <p style="color:rgba(255,255,255,0.95)">🌐 www.ziyakhaengineering</p>
+      <p style="color:rgba(255,255,255,0.95)">Facebook: Ziyakha Engineering</p>
     </div>
-  </section>
-
-  <!-- Vision -->
-  <section id="vision" class="container section">
-    <h2>Vision</h2>
-    <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
-  </section>
-
-  <!-- Mission -->
-  <section id="mission" class="container section">
-    <h2>Mission Statement</h2>
-    <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
-  </section>
-
-  <!-- Values -->
-  <section id="values" class="container section">
-    <h2>Value Statement</h2>
-    <ul>
-      <li><strong>Safety First:</strong> Prioritize health and safety for all.</li>
-      <li><strong>Quality & Reliability:</strong> Training materials meet international standards.</li>
-      <li><strong>Community Empowerment:</strong> Uplifting communities through jobs and training.</li>
-    </ul>
-  </section>
-
-  <!-- Objectives -->
-  <section id="objectives" class="container section">
-    <h2>Strategic Objectives</h2>
-    <ul>
-      <li>Provide ongoing training for employees.</li>
-      <li>Implement rigorous health and safety protocols.</li>
-      <li>Stay compliant with international standards.</li>
-      <li>Develop diversified products and services.</li>
-      <li>Collaborate with contractors and investors.</li>
-      <li>Expand into new markets.</li>
-    </ul>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="container section">
-    <h2>Our Services</h2>
-    <div class="service-columns">
-      <div>
-        <h3>Construction Safety</h3>
-        <ul>
-          <li>OHSA</li>
-          <li>First Aid</li>
-          <li>Fire Fighting</li>
-          <li>SHERep</li>
-          <li>HIRA</li>
-          <li>Working on Heights</li>
-          <li>Scaffolding</li>
-          <li>Safety Audits</li>
-          <li>Safety Files</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Mining Safety</h3>
-        <ul>
-          <li>MHSA</li>
-          <li>First Aid</li>
-          <li>Fire Prevention</li>
-          <li>Incident Investigation</li>
-          <li>Confined Spaces</li>
-          <li>Legal Liability</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Strategic Advantage -->
-  <section id="advantage" class="container section">
-    <h2>Strategic Advantage</h2>
-    <ul>
-      <li>Skilled training workforce.</li>
-      <li>Cost efficiency through lean principles.</li>
-      <li>Customer-focused tailored solutions.</li>
-      <li>Continuous innovation and R&D.</li>
-      <li>Flexible learning options (E-Learning, Webinars, In-Classroom).</li>
-    </ul>
-  </section>
-
-  <!-- CEO -->
-  <section id="ceo" class="container section">
-    <h2>Chief Executive Officer</h2>
-    <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
-  </section>
-
-  <!-- Contact -->
-  <footer id="contact" class="container footer">
-    <h2>Contact Us</h2>
-    <p><strong>CEO:</strong> Lehlohonolo Magoete</p>
-    <p>📞 +27 65 936 4152</p>
-    <p>📧 ziyakhaengineering@gmail.com</p>
-    <p>🌐 www.ziyakhaengineering</p>
-    <p>Facebook: Ziyakha Engineering</p>
   </footer>
-
 </body>
 </html>
