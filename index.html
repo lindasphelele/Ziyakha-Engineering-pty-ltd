@@ -5,105 +5,207 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ziyakha Engineering Pty Ltd</title>
 
-  <!-- Embedded CSS so it works immediately without external files -->
+  <!-- Embedded CSS using the teal / grey palette from your image -->
   <style>
-    /* Reset & variables */
+    /* Palette based on provided PDF:
+       teal (main)    : #2BB8A4
+       teal (darker)  : #0E8B78
+       grey (diagonal) : #CFCFCF
+       white border    : #FFFFFF
+    */
     :root{
-      --bg: #f9f9f9;
-      --brand-dark: #004466;
-      --brand-mid: #0077aa;
-      --card-bg: #eef6ff;
-      --muted: #666666;
+      --white: #ffffff;
+      --teal: #2BB8A4;       /* main teal */
+      --teal-dark: #0E8B78;  /* darker teal used for accents if needed */
+      --slate: #CFCFCF;      /* diagonal grey */
+      --muted: #6b6b6b;
       --max-width: 1100px;
       --pad: 16px;
-      --brand-font: "Segoe UI", Arial, sans-serif;
+      --brand-font: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+      --body-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
+
+    /* Reset & base */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      font-family:var(--brand-font);
-      line-height:1.6;
-      background:var(--bg);
+      font-family:var(--body-font);
       color:#222;
+      background:var(--white);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
+
     .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--pad);}
 
     /* Header */
     header{
-      background:var(--brand-dark);
-      color:#fff;
-      width:100%;
       position:sticky;
       top:0;
-      z-index:100;
-      border-bottom:1px solid rgba(0,0,0,0.08);
+      z-index:90;
+      background:var(--white);
+      border-bottom:1px solid #eee;
     }
-    .header-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;flex-wrap:wrap}
-    .logo h1{font-size:1.1rem;margin-bottom:2px}
-    .logo p{font-size:0.85rem;color:rgba(255,255,255,0.9);margin:0}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
+    .logo h1{font-family:var(--brand-font);font-weight:700;color:var(--teal-dark);font-size:1.15rem;margin-bottom:2px}
+    .logo p{margin:0;color:var(--muted);font-size:0.85rem}
 
-    nav ul{list-style:none;display:flex;gap:12px;align-items:center;margin:0;padding:0}
-    nav a{color:#fff;text-decoration:none;font-weight:700;padding:6px 8px;border-radius:6px;display:inline-block}
-    nav a:hover{background:rgba(255,255,255,0.05)}
+    nav ul{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+    nav a{color:#222;text-decoration:none;padding:6px 8px;border-radius:6px;font-weight:600}
+    nav a:hover{background:#f3f6f6}
 
-    /* Hero with diagonal shapes */
-    .hero{position:relative;overflow:hidden;padding:48px 0 64px;min-height:360px;display:flex;align-items:flex-start}
+    /* HERO with diagonal teal (right) and grey (left) similar to PDF */
+    .hero{
+      position:relative;
+      overflow:visible;
+      min-height:720px; /* tall hero to match PDF proportion */
+      display:flex;
+      align-items:center;
+      padding:48px 0 80px;
+      background:var(--white);
+    }
+
+    /* Teal diagonal on the right */
     .hero::before{
       content:"";
-      position:absolute;top:-8%;right:-12%;width:78%;height:120%;background:var(--brand-mid);transform:rotate(-18deg);z-index:0;
+      position:absolute;
+      top:0;
+      right:0;
+      width:66%;
+      height:100%;
+      background:var(--teal);
+      transform-origin:top right;
+      transform:skewY(-14deg);
+      z-index:0;
     }
+
+    /* Grey diagonal on the left/bottom */
     .hero::after{
       content:"";
-      position:absolute;bottom:-10%;left:-6%;width:56%;height:82%;background:#dcdcdc;transform:rotate(-18deg);z-index:0;
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:50%;
+      height:56%;
+      background:var(--slate);
+      transform-origin:bottom left;
+      transform:skewY(-14deg);
+      z-index:0;
     }
-    .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;gap:10px}
-    .hero h2{font-size:1.6rem;color:#fff;margin-bottom:6px;font-weight:700}
-    .hero p{color:rgba(255,255,255,0.95);max-width:800px}
 
-    /* Sections */
-    .section{padding:28px 0;border-bottom:1px solid #f3f3f3}
-    .section h2{color:var(--brand-dark);margin-bottom:12px;border-bottom:3px solid var(--brand-mid);display:inline-block;padding-bottom:0.25rem}
-    ul{margin-left:1.25rem;margin-top:0.5rem;color:#333}
-    .service-columns{display:flex;gap:12px;flex-wrap:wrap}
-    .service-columns > div{flex:1 1 300px;background:var(--card-bg);padding:12px;border-radius:8px}
+    /* top-right logo area like PDF (place your SVG/logo in assets if desired) */
+    .hero-logo-top{
+      position:absolute;
+      top:36px;
+      right:6.5%;
+      z-index:22;
+    }
+    .hero-logo-top img{ height:84px; width:auto; display:block; }
 
-    /* Footer */
-    footer{background:var(--brand-dark);color:#fff;text-align:center;padding:18px 0}
-    footer p{margin:6px 0;color:rgba(255,255,255,0.9)}
+    .hero-inner{
+      position:relative;
+      z-index:20;
+      display:flex;
+      flex-direction:row;
+      gap:40px;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+    }
+
+    /* Left column: text & contact */
+    .hero-left{
+      max-width:520px;
+      padding-top:36px;
+      color:#222;
+    }
+    .hero-mark{
+      margin:0 0 8px;
+      font-family:var(--brand-font);
+      font-weight:700;
+      font-size:52px;
+      line-height:0.95;
+      color:#06302f; /* deep teal-like / near-black for contrast */
+    }
+    .hero-tag{
+      margin:0 0 14px;
+      font-family:var(--brand-font);
+      letter-spacing:0.28em;
+      text-transform:uppercase;
+      font-size:0.9rem;
+      color:#06302f;
+    }
+    .hero-desc{
+      margin:0 0 20px;
+      color:#3b3b3b;
+      line-height:1.6;
+      font-size:0.98rem;
+    }
+
+    .hero-contact{ margin-top:12px; }
+    .contact-title{ margin:0 0 8px; font-family:var(--brand-font); letter-spacing:0.25em; text-transform:uppercase; font-size:0.85rem; color:#222; }
+    .contact-title::after{ display:block; content:""; width:48px; height:4px; background:var(--teal-dark); border-radius:3px; margin-top:8px; }
+    .contact-list{ margin-top:12px; display:flex; flex-direction:column; gap:18px; }
+    .contact-item{ display:flex; gap:12px; align-items:flex-start; }
+    .contact-text{ color:#444; font-size:0.96rem; }
+
+    /* Right: hexagon image visual */
+    .hero-visual{ display:flex; align-items:center; justify-content:center; margin-right:4%; }
+    .hex-border{
+      width:420px;
+      max-width:46%;
+      aspect-ratio: 1 / 1;
+      padding:12px;               /* white border thickness */
+      background:var(--white);
+      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+      box-shadow: 0 8px 28px rgba(14,21,26,0.25);
+      display:block;
+      overflow:hidden;
+    }
+    .hex-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+    }
+
+    /* other sections */
+    .section{ padding:28px 0; }
+    .section h2{ color:#06302f; margin-bottom:12px; border-bottom:3px solid var(--teal); display:inline-block; padding-bottom:0.25rem; }
+    .service-columns{ display:flex; gap:12px; flex-wrap:wrap; }
+    .service-columns > div{ flex:1 1 300px; background: #f4f9f8; padding:12px; border-radius:8px; }
+
+    footer{ background:var(--white); color:#333; text-align:center; padding:28px 0; border-top:1px solid #eee; }
 
     /* Responsive */
     @media (max-width:900px){
-      nav ul{flex-direction:column;gap:6px}
-      .service-columns{flex-direction:column}
-      .hero{padding:28px 0 48px;min-height:320px}
+      .hero-inner{ flex-direction:column; align-items:flex-start; gap:18px; }
+      .hex-border{ width:72vw; max-width:420px; }
+      .hero-logo-top img{ height:64px; right:4%; top:18px; }
+      .hero{ min-height:520px; padding:28px 0 48px; }
     }
 
-    /* small visible indicator to confirm stylesheet is loaded */
-    body::after{
-      content:"";
-      position:fixed;right:8px;bottom:8px;width:8px;height:8px;background:rgba(0,0,0,0.03);border-radius:2px;pointer-events:none;
-    }
+    /* tiny visual confirmation when CSS is loaded */
+    body::after{ content:""; position:fixed;right:8px;bottom:8px;width:8px;height:8px;background:rgba(0,0,0,0.03);border-radius:2px;pointer-events:none; }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container header-inner">
       <div class="logo">
         <h1>Ziyakha Engineering Pty Ltd</h1>
-        <p>Safety First, Excellence Always</p>
+        <p>Engineering the Future</p>
       </div>
 
-      <nav aria-label="Primary navigation">
+      <nav aria-label="Primary">
         <ul>
           <li><a href="#vision">Vision</a></li>
           <li><a href="#mission">Mission</a></li>
-          <li><a href="#values">Values</a></li>
-          <li><a href="#objectives">Objectives</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#advantage">Advantage</a></li>
-          <li><a href="#ceo">CEO</a></li>
+          <li><a href="#clients">Clients</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -112,41 +214,38 @@
 
   <main>
     <section class="hero">
-      <div class="container">
-        <h2>Black Youth Female-Owned Safety Solutions Company</h2>
-        <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+      <!-- Top-right logo position (replace src with your logo path) -->
+      <div class="hero-logo-top">
+        <!-- Optional: replace with actual logo file -->
+        <!-- <img src="assets/logo.svg" alt="Ziyakha logo"> -->
       </div>
-    </section>
 
-    <section id="vision" class="container section">
-      <h2>Vision</h2>
-      <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
-    </section>
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1 class="hero-mark">Ziyakha</h1>
+          <p class="hero-tag">ENGINEERING THE FUTURE</p>
+          <p class="hero-desc">We design and deliver civil & structural engineering solutions for residential, commercial and industrial projects. From concept to completion — practical, safe and code-compliant.</p>
 
-    <section id="mission" class="container section">
-      <h2>Mission Statement</h2>
-      <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
-    </section>
+          <div class="hero-contact">
+            <h4 class="contact-title">CONTACT</h4>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-text">39 Green Ave, Edleen, Kempton Park, 1621, South Africa</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-text">076 180 1541</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section id="values" class="container section">
-      <h2>Value Statement</h2>
-      <ul>
-        <li><strong>Safety First:</strong> Prioritize health and safety for all.</li>
-        <li><strong>Quality & Reliability:</strong> Training materials meet international standards.</li>
-        <li><strong>Community Empowerment:</strong> Uplifting communities through jobs and training.</li>
-      </ul>
-    </section>
-
-    <section id="objectives" class="container section">
-      <h2>Strategic Objectives</h2>
-      <ul>
-        <li>Provide ongoing training for employees.</li>
-        <li>Implement rigorous health and safety protocols.</li>
-        <li>Stay compliant with international standards.</li>
-        <li>Develop diversified products and services.</li>
-        <li>Collaborate with contractors and investors.</li>
-        <li>Expand into new markets.</li>
-      </ul>
+        <div class="hero-visual">
+          <div class="hex-border">
+            <!-- Replace this with your hero image (project photo) -->
+            <img class="hex-image" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8b6a9d8b6f8c3834b8b79f4452b6b6e7" alt="Project image">
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="services" class="container section">
@@ -160,10 +259,6 @@
             <li>Fire Fighting</li>
             <li>SHERep</li>
             <li>HIRA</li>
-            <li>Working on Heights</li>
-            <li>Scaffolding</li>
-            <li>Safety Audits</li>
-            <li>Safety Files</li>
           </ul>
         </div>
         <div>
@@ -173,39 +268,22 @@
             <li>First Aid</li>
             <li>Fire Prevention</li>
             <li>Incident Investigation</li>
-            <li>Confined Spaces</li>
-            <li>Legal Liability</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="advantage" class="container section">
-      <h2>Strategic Advantage</h2>
-      <ul>
-        <li>Skilled training workforce.</li>
-        <li>Cost efficiency through lean principles.</li>
-        <li>Customer-focused tailored solutions.</li>
-        <li>Continuous innovation and R&D.</li>
-        <li>Flexible learning options (E-Learning, Webinars, In-Classroom).</li>
-      </ul>
+    <section id="clients" class="container section">
+      <h2>Some Of Our Clients</h2>
+      <p style="color:var(--muted);margin-top:12px">Client logos and testimonials go here.</p>
     </section>
 
-    <section id="ceo" class="container section">
-      <h2>Chief Executive Officer</h2>
-      <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
-    </section>
+    <footer id="contact" class="container">
+      <h2 style="color:#06302f;margin-bottom:8px">Contact Us</h2>
+      <p style="color:var(--muted)"><strong>CEO:</strong> Lehlohonolo Magoete</p>
+      <p style="color:var(--muted)">📞 +27 65 936 4152</p>
+      <p style="color:var(--muted)">📧 ziyakhaengineering@gmail.com</p>
+    </footer>
   </main>
-
-  <footer id="contact">
-    <div class="container">
-      <h2 style="color:#fff; margin-bottom:8px;">Contact Us</h2>
-      <p style="color:rgba(255,255,255,0.95)"><strong>CEO:</strong> Lehlohonolo Magoete</p>
-      <p style="color:rgba(255,255,255,0.95)">📞 +27 65 936 4152</p>
-      <p style="color:rgba(255,255,255,0.95)">📧 ziyakhaengineering@gmail.com</p>
-      <p style="color:rgba(255,255,255,0.95)">🌐 www.ziyakhaengineering</p>
-      <p style="color:rgba(255,255,255,0.95)">Facebook: Ziyakha Engineering</p>
-    </div>
-  </footer>
 </body>
 </html>
