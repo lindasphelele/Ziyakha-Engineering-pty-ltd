@@ -1,150 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ziyakha Engineering - Home</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
-  <meta name="description" content="Ziyakha Engineering - Civil & Structural Engineering" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ziyakha Engineering</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" class="menu-toggle">
-        <span class="hamburger"></span>
-      </button>
-
-      <!-- left: empty to preserve layout on mobile; logo will appear top-right inside hero to match PDF -->
-      <div class="header-spacer"></div>
-
-      <nav id="main-nav" class="main-nav" aria-hidden="true">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#clients">Clients</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>Ziyakha Engineering</h1>
+      <p>Safety First, Excellence Always</p>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#values">Values</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#advantage">Advantage</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <!-- HERO with diagonal background shapes and centered hex image -->
-    <section id="home" class="hero">
-      <!-- Top-right logo as in provided PDF -->
-      <div class="hero-logo-top">
-        <!-- Replace with your logo file (SVG preferred). -->
-        <img src="assets/logo.svg" alt="Ziyakha Engineering logo" />
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Black Youth Female-Owned Safety Solutions Company</h2>
+    <p>Committed to workplace safety, training, and compliance in Mining and Construction.</p>
+  </section>
+
+  <!-- Vision -->
+  <section id="vision">
+    <h2>Vision</h2>
+    <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission">
+    <h2>Mission Statement</h2>
+    <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
+  </section>
+
+  <!-- Values -->
+  <section id="values">
+    <h2>Value Statement</h2>
+    <ul>
+      <li><strong>Safety First:</strong> Prioritize health and safety for all.</li>
+      <li><strong>Quality & Reliability:</strong> Training materials meet international standards.</li>
+      <li><strong>Community Empowerment:</strong> Uplifting communities through jobs and training.</li>
+    </ul>
+  </section>
+
+  <!-- Objectives -->
+  <section id="objectives">
+    <h2>Strategic Objectives</h2>
+    <ul>
+      <li>Provide ongoing training for employees.</li>
+      <li>Implement rigorous health and safety protocols.</li>
+      <li>Stay compliant with international standards.</li>
+      <li>Develop diversified products and services.</li>
+      <li>Collaborate with contractors and investors.</li>
+      <li>Expand into new markets.</li>
+    </ul>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-columns">
+      <div>
+        <h3>Construction Safety</h3>
+        <ul>
+          <li>OHSA</li>
+          <li>First Aid</li>
+          <li>Fire Fighting</li>
+          <li>SHERep</li>
+          <li>HIRA</li>
+          <li>Working on Heights</li>
+          <li>Scaffolding</li>
+          <li>Safety Audits</li>
+          <li>Safety Files</li>
+        </ul>
       </div>
-
-      <!-- decorative diagonal shapes are created in CSS (.hero::before / ::after) -->
-      <div class="hero-inner container">
-        <div class="hero-left">
-          <h1 class="hero-mark">Ziyakha Engineering Pty Ltd</h1>
-          <p class="hero-tag">ENGINEERING THE FUTURE</p>
-          <p class="hero-desc">We provide a wide range of Safety services that enable organisations to function effectively while
-                               mitigating hazards, such as: Safety training programs, risk assessments, safety audits, and
-                               mining and construction consultancy. Our skilled staff is committed to keeping up with the most
-                               recent safety requirements and best practices to ensure that our clients meet and surpass
-                               industry standards.
-                               We consider safety to be an essential component of operational excellence, not only a
-                               prerequisit
-           <div class="hero-contact">
-            <h3 class="contact-title">CONTACT</h3>
-            <div class="contact-list">
-              <div class="contact-item">
-                <span class="contact-icon">📍</span>
-                <div class="contact-text">136 2nd street Randjespark</div>
-              </div>
-
-              <div class="contact-item">
-                <span class="contact-icon">📱</span>
-                <div class="contact-text">+27 65 936 4152</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hexagon photo centered on the angled background -->
-        <div class="hero-visual">
-          <div class="hex-border">
-            <img src="assets/hero-photo.jpg" alt="Project image" class="hex-image" />
-          </div>
-        </div>
+      <div>
+        <h3>Mining Safety</h3>
+        <ul>
+          <li>MHSA</li>
+          <li>First Aid</li>
+          <li>Fire Prevention</li>
+          <li>Incident Investigation</li>
+          <li>Confined Spaces</li>
+          <li>Legal Liability</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- Services (keeps the same structure from your previous layout) -->
-    <section id="services" class="container services">
-      <div class="service-row">
-        <div class="service-icon">
-          <div class="icon-badge">△</div>
-        </div>
-        <div class="service-content">
-          <h4 class="service-title">PROCEDURES</h4>
-          <p class="service-desc">Safe working & operating procedures, Traffic Management plans, Health & Safety systems and Risk analysis.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-icon">
-          <div class="icon-badge">✔</div>
-        </div>
-        <div class="service-content">
-          <h4 class="service-title">AUDITS</h4>
-          <p class="service-desc">Monthly site and safety audits. Internal and external audits with corrective action guidance.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-icon">
-          <div class="icon-badge">👷</div>
-        </div>
-        <div class="service-content">
-          <h4 class="service-title">SAFETY VISITS</h4>
-          <p class="service-desc">On-site OHS services, safety file maintenance and placement of full-time Safety Officers.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container cta-inner">
-        <h3 class="cta-title">NEED TELECOM SOLUTIONS?</h3>
-        <p class="cta-sub">We've got you covered!</p>
-        <a class="cta-button" href="#contact">CLICK ME</a>
-      </div>
-    </section>
-
-    <section id="clients" class="container clients">
-      <h2 class="clients-title">SOME OF OUR CLIENTS</h2>
-      <div class="clients-underline"></div>
-    </section>
-
-    <section id="contact" class="container contact-section">
-      <h3>Get in touch</h3>
-      <p>Email: <a href="mailto:ziyakhaengineering@gmail.com">ziyakhaengineering@gmail.com</a> | Phone: +27 65 936 4152</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Ziyakha Engineering Pty Ltd. All rights reserved.</p>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // small interactions
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    menuToggle.addEventListener('click', () => {
-      const open = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('open');
-      nav.setAttribute('aria-hidden', String(!open));
-    });
-  </script>
+  <!-- Strategic Advantage -->
+  <section id="advantage">
+    <h2>Strategic Advantage</h2>
+    <ul>
+      <li>Skilled training workforce.</li>
+      <li>Cost efficiency through lean principles.</li>
+      <li>Customer-focused tailored solutions.</li>
+      <li>Continuous innovation and R&D.</li>
+      <li>Flexible learning options (E-Learning, Webinars, In-Classroom).</li>
+    </ul>
+  </section>
+
+  <!-- CEO -->
+  <section id="ceo">
+    <h2>Chief Executive Officer</h2>
+    <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>CEO:</strong> Lehlohonolo Magoete</p>
+    <p>📞 +27 65 936 4152</p>
+    <p>📧 ziyakhaengineering@gmail.com</p>
+    <p>🌐 www.ziyakhaengineering</p>
+    <p>Facebook: Ziyakha Engineering</p>
+  </footer>
 </body>
 </html>
