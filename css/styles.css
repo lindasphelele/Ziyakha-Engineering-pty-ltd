@@ -25,12 +25,11 @@ h1::first-letter {
   padding: 2px 12px;
   margin-right: 5px;
   font-weight: 900;
-  /* Clip-path makes the top bar shorter/straighter than the bottom */
+  /* Custom clip-path for small/straight top */
   clip-path: polygon(0% 0%, 60% 0%, 60% 15%, 100% 15%, 100% 85%, 0% 85%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
 }
 
-/* 2. Engineering 'E' Styling */
-/* This makes the middle line of the E's shorter using a mask effect */
+/* 2. Engineering 'E' Styling (Short middle line) */
 h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -80,7 +79,7 @@ section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay so text is readable */
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
 }
 
 .content {
@@ -90,19 +89,18 @@ section::before {
   z-index: 1;
 }
 
-/* --- IMAGE PATHS FOR GITHUB --- */
-/* These use the exact filenames from your WhatsApp upload screenshots */
+/* --- IMAGE PATHS SWAPPED --- */
 
-/* Background 1 - Construction */
-.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+/* Background 1 (NOW THE SECOND PICTURE) */
+.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
 
-/* Background 2 - Masonry/Workers */
-.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+/* Background 2 (NOW THE FIRST PICTURE) */
+.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 
-/* Background 3 - PPE Worker */
+/* Background 3 - Remaining consistent */
 .bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 
-/* Background 4 - Molten Metal / Robotics */
+/* Background 4 - Remaining consistent */
 .bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
 
 /* Buttons */
