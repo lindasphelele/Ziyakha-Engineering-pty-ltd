@@ -1,27 +1,31 @@
 # Ziyakha Engineering PTY LTD Website
 
 ## Overview
-This is the official one-page website for **Ziyakha Engineering PTY LTD**, a black youth female-owned company providing first-rate safety solutions in mining and construction.
+This is the official one-page website for Ziyakha Engineering PTY LTD, a black youth female-owned company providing safety solutions in mining and construction.
 
-The site highlights:
-- Vision, Mission, and Values
-- Services in Construction and Mining Safety
-- Strategic Advantages
-- Leadership and Partnerships
-- Contact information
+## Features
+- Full-screen background images with gentle motion
+- Right-aligned navigation bar
+- Smooth scroll between sections
+- Downloadable company profile
 
 ## Structure
-- `index.html` → main page
-- `css/style.css` → styling
-- `images/` → background images
-- `Ziyakha_Engineering_Profile.pdf` → downloadable company profile
+- `index.html` — main page
+- `css/style.css` — styling and animation
+- `images/` — background images
+- `Ziyakha_Engineering_Profile.pdf` — downloadable profile
 
 ## Deployment
-1. Push this repo to GitHub.
-2. Enable **GitHub Pages** in repo settings.
+1. Place your images in the `images/` folder with these exact names:
+   - `construction-site.png`
+   - `workers-masonry.png`
+   - `ppe-worker.png`
+   - `molten-metal.png`
+   - `robotics.png`
+2. Push to GitHub and enable GitHub Pages.
 3. Site will be live at `https://<username>.github.io/ziyakha-engineering`.
 
-Alternatively, deploy via **Netlify** for form handling and advanced features.
+Alternatively, deploy via Netlify for advanced features.
 
 ## Credits
 - Content: Ziyakha Engineering Safety Business Profile 2025
