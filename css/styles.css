@@ -17,10 +17,10 @@ body {
 
 /* --- LOGO BRANDING --- */
 
-/* 1. Solid Z with small, straight top - Jade Green */
+/* 1. Solid Z with small, straight top - RESTORED GOLD */
 h1::first-letter {
   display: inline-block;
-  background: #00A86B; /* Jade Green */
+  background: #f39c12; /* Solid Gold restored */
   color: #000;
   padding: 2px 12px;
   margin-right: 5px;
@@ -30,7 +30,6 @@ h1::first-letter {
 }
 
 /* 2. Engineering 'E' Styling (Middle line shorter) */
-/* Using a background-gradient trick to shave the middle line of 'E' */
 h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -60,7 +59,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00A86B; /* Jade Green hover */
+  color: #f39c12; /* Gold hover */
 }
 
 /* Sections */
@@ -92,33 +91,27 @@ section::before {
 
 /* --- IMAGE PATHS SWAPPED --- */
 
-/* Background 1 (HERO - Now the second uploaded picture) */
+/* Background 1 (NOW THE SECOND PICTURE) */
 .bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
 
-/* Background 2 (SERVICES - Now the first uploaded picture) */
+/* Background 2 (NOW THE FIRST PICTURE) */
 .bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 
-/* Background 3 (VISION) */
+/* Background 3 - Remaining consistent */
 .bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 
-/* Background 4 (ADVANTAGE) */
+/* Background 4 - Remaining consistent */
 .bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
 
-/* Buttons - Jade Green */
+/* Buttons - RESTORED GOLD */
 .cta {
   display: inline-block;
   padding: 12px 26px;
-  background: #00A86B; /* Jade Green */
+  background: #f39c12; /* Solid Gold restored */
   color: #000;
   text-decoration: none;
   font-weight: 700;
   border-radius: 4px;
-  transition: 0.3s ease;
-}
-
-.cta:hover {
-  background: #008f5b;
-  transform: scale(1.05);
 }
 
 .contact { background: #111; }
