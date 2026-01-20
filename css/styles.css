@@ -1,6 +1,8 @@
+/* Reset & base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Montserrat', sans-serif; color: #fff; scroll-behavior: smooth; }
 
+/* Sections */
 section {
   height: 100vh;
   display: flex;
@@ -23,6 +25,8 @@ section .content {
   max-width: 800px;
   padding: 20px;
 }
+
+/* Navigation */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -40,8 +44,12 @@ nav a {
   transition: color 0.3s;
 }
 nav a:hover { color: #f39c12; }
+
+/* Typography */
 h1, h2 { margin-bottom: 20px; }
 p { margin-bottom: 15px; line-height: 1.6; }
+
+/* Buttons */
 .cta {
   display: inline-block;
   padding: 10px 20px;
