@@ -1,130 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ziyakha Engineering Pty Ltd</title>
-  <link rel="stylesheet" href="css/styles.css">.
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ziyakha Engineering PTY LTD</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="brand">
-        <h1>Ziyakha Engineering</h1>
-        <p class="sub">Safety First, Excellence Always</p>
-      </div>
 
-      <nav class="main-nav" aria-label="Primary navigation">
-        <ul>
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#mission">Mission</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#advantage">Advantage</a></li>
-          <li><a href="#ceo">CEO</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#vision">Vision</a>
+    <a href="#advantage">Advantage</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="bg1">
+    <div class="content">
+      <h1>Ziyakha Engineering PTY LTD</h1>
+      <p>Safety First. Innovation Always.</p>
+      <a href="#services" class="cta">Explore Services</a>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-left">
-        <h2>Black Youth Female-Owned Safety Solutions Company</h2>
-        <p class="lead">Committed to workplace safety, training, and compliance in Mining and Construction.</p>
-      </div>
-      <div class="hero-right">
-        <!-- optional image / logo -->
-        <div class="hex-placeholder" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <section id="vision" class="container section">
-      <h3>Vision</h3>
-      <p>Our aspiration is to be among the principal stakeholders spearheading safety and innovation across Africa while ensuring safe environments for teams, clients, and communities.</p>
-    </section>
-
-    <section id="mission" class="container section">
-      <h3>Mission Statement</h3>
-      <p>We are committed to delivering high-quality safety training that meets evolving needs while prioritizing environmental stewardship and social responsibility.</p>
-    </section>
-
-    <section id="services" class="container section">
-      <h3>Our Services</h3>
-      <div class="service-columns">
-        <div class="card">
-          <h4>Construction Safety</h4>
-          <ul>
-            <li>OHSA</li><li>First Aid</li><li>Fire Fighting</li><li>SHERep</li><li>HIRA</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Mining Safety</h4>
-          <ul>
-            <li>MHSA</li><li>First Aid</li><li>Fire Prevention</li><li>Incident Investigation</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="advantage" class="container section">
-      <h3>Strategic Advantage</h3>
-      <ul>
-        <li>Skilled training workforce</li>
-        <li>Cost efficiency using lean principles</li>
-        <li>Customer-focused tailored solutions</li>
-      </ul>
-    </section>
-
-    <section id="ceo" class="container section">
-      <h3>Chief Executive Officer</h3>
-      <p><strong>Lehlohonolo Magoete</strong> – Inspiring young black female entrepreneur with a vision for safety across Africa.</p>
-    </section>
-
-    <!-- Contact form (Formspree-ready) -->
-    <section id="contact" class="container section contact-section">
-      <h3>Contact Us</h3>
-
-      <div class="contact-grid">
-        <!-- Contact form -->
-        <form id="contact-form" class="contact-form" novalidate>
-          <!-- Honeypot field to trap bots (should remain hidden) -->
-          <input type="text" name="_gotcha" id="_gotcha" class="hidden" tabindex="-1" autocomplete="no" />
-
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-
-          <button id="submit-btn" type="submit" class="btn">Send Message</button>
-          <p id="form-status" role="status" aria-live="polite" class="form-status"></p>
-          <p class="note">Or email us at <a href="mailto:ziyakhaengineering@gmail.com">ziyakhaengineering@gmail.com</a></p>
-        </form>
-
-        <!-- Contact details -->
-        <aside class="contact-info">
-          <h4>Office</h4>
-          <p>39 Green Ave, Edleen, Kempton Park, 1621, South Africa</p>
-          <p>Phone: 076 180 1541</p>
-          <p>Email: <a href="mailto:ziyakhaengineering@gmail.com">ziyakhaengineering@gmail.com</a></p>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Ziyakha Engineering Pty Ltd. All rights reserved.</p>
+  <!-- Services -->
+  <section id="services" class="bg2">
+    <div class="content">
+      <h2>Our Services</h2>
+      <p><strong>Construction Safety:</strong> OHSA, First Aid, Fire Fighting, SHERep, HIRA, Safety Audits, Safety Files</p>
+      <p><strong>Mining Safety:</strong> MHSA, Incident Investigation, Confined Spaces, Fire Prevention, Legal Liability</p>
+      <a href="#contact" class="cta">Request a Quote</a>
     </div>
-  </footer>
+  </section>
 
-  <script src="js/contact-form.js" defer></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Vision & Mission -->
+  <section id="vision" class="bg3">
+    <div class="content">
+      <h2>Vision & Mission</h2>
+      <p>"Spearheading safety and innovation across Africa."</p>
+      <p>"Delivering high-quality safety training with environmental and social responsibility."</p>
+    </div>
+  </section>
+
+  <!-- Strategic Advantage -->
+  <section id="advantage" class="bg4">
+    <div class="content">
+      <h2>Strategic Advantage</h2>
+      <p>Skilled workforce, cost efficiency, customer focus, innovation, flexibility with E-learning, Webinars, and In-Classroom options.</p>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="bg5">
+    <div class="content">
+      <h2>Leadership</h2>
+      <p>CEO: Lehlohonolo Magoete – Inspiring young black female entrepreneur, committed to workplace and community safety.</p>
+      <p>Partners: We Train Pty Ltd, Dipoho Pty Ltd, Sheq Madotta Pty Ltd</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>Phone: +27 65 936 4152</p>
+      <p>Email: ziyakhaengineering@gmail.com</p>
+      <p>Facebook: Ziyakha Engineering</p>
+      <a href="Ziyakha_Engineering_Profile.pdf" class="cta">Download Company Profile</a>
+    </div>
+  </section>
+
 </body>
 </html>
