@@ -11,7 +11,7 @@ This is the official one-page website for Ziyakha Engineering PTY LTD, a black y
 
 ## Structure
 - `index.html` — main page
-- `css/style.css` — styling and animation
+- `css/styles.css` — styling and animation
 - `images/` — background images
 - `Ziyakha_Engineering_Profile.pdf` — downloadable profile
 
@@ -23,9 +23,7 @@ This is the official one-page website for Ziyakha Engineering PTY LTD, a black y
    - `molten-metal.png`
    - `robotics.png`
 2. Push to GitHub and enable GitHub Pages.
-3. Site will be live at `https://<username>.github.io/ziyakha-engineering`.
-
-Alternatively, deploy via Netlify for advanced features.
+3. Site will be live at `https://<username>.github.io/Ziyakha-Engineering-pty-ltd`.
 
 ## Credits
 - Content: Ziyakha Engineering Safety Business Profile 2025
