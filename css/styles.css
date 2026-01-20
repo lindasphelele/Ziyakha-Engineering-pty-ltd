@@ -12,7 +12,7 @@ nav {
 }
 .nav-right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* ✅ pushes links to the right */
 }
 nav a {
   color: #fff;
@@ -34,7 +34,7 @@ section {
   background-position: center;
   background-attachment: fixed;
   position: relative;
-  animation: shake 20s infinite linear;
+  animation: shake 20s infinite linear; /* gentle motion */
 }
 section::before {
   content: "";
