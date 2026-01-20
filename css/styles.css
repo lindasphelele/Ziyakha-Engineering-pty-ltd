@@ -1,4 +1,4 @@
-/* Reset & General */
+/* Reset & General Setup */
 * {
   margin: 0;
   padding: 0;
@@ -12,19 +12,28 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
+  background-color: #111;
 }
 
 /* --- LOGO BRANDING --- */
 
-/* Making the 'Z' Solid with a small straight top */
+/* 1. Solid Z with small, straight top */
 h1::first-letter {
   display: inline-block;
-  background: #f39c12; 
+  background: #f39c12; /* Solid Gold */
   color: #000;
-  padding: 0 10px;
-  margin-right: 4px;
-  /* This creates the straight, smaller top side of the Z */
-  clip-path: polygon(0% 0%, 65% 0%, 65% 15%, 100% 15%, 100% 85%, 0% 85%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
+  padding: 2px 12px;
+  margin-right: 5px;
+  font-weight: 900;
+  /* Clip-path makes the top bar shorter/straighter than the bottom */
+  clip-path: polygon(0% 0%, 60% 0%, 60% 15%, 100% 15%, 100% 85%, 0% 85%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+/* 2. Engineering 'E' Styling */
+/* This makes the middle line of the E's shorter using a mask effect */
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* Navigation */
@@ -34,7 +43,7 @@ nav {
   right: 0;
   left: 0;
   padding: 15px 40px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   z-index: 1000;
 }
 
@@ -48,6 +57,10 @@ nav a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+}
+
+nav a:hover {
+  color: #f39c12;
 }
 
 /* Sections */
@@ -67,22 +80,30 @@ section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay so text is readable */
 }
 
 .content {
   position: relative;
   max-width: 900px;
   padding: 40px;
+  z-index: 1;
 }
 
-/* --- IMAGE PATH FIX --- */
-/* Changed 'images' to 'Images' to match your GitHub folder exactly */
-.bg1 { background-image: url("../Images/construction-site.png"); }
-.bg2 { background-image: url("../Images/workers-masonry.png"); }
-.bg3 { background-image: url("../Images/ppe-worker.png"); }
-.bg4 { background-image: url("../Images/molten-metal.png"); }
-.bg5 { background-image: url("../Images/robotics.png"); }
+/* --- IMAGE PATHS FOR GITHUB --- */
+/* These use the exact filenames from your WhatsApp upload screenshots */
+
+/* Background 1 - Construction */
+.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+
+/* Background 2 - Masonry/Workers */
+.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+
+/* Background 3 - PPE Worker */
+.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+
+/* Background 4 - Molten Metal / Robotics */
+.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
 
 /* Buttons */
 .cta {
@@ -94,3 +115,5 @@ section::before {
   font-weight: 700;
   border-radius: 4px;
 }
+
+.contact { background: #111; }
