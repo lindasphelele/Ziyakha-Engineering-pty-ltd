@@ -2,6 +2,27 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Montserrat', sans-serif; color: #fff; scroll-behavior: smooth; }
 
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.7);
+  padding: 10px 30px;
+  z-index: 1000;
+}
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+nav a:hover { color: #f39c12; }
+
 /* Sections */
 section {
   height: 100vh;
@@ -11,8 +32,9 @@ section {
   text-align: center;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* parallax effect */
+  background-attachment: fixed;
   position: relative;
+  animation: shake 20s infinite linear;
 }
 section::before {
   content: "";
@@ -26,31 +48,8 @@ section .content {
   max-width: 800px;
   padding: 20px;
 }
-
-/* Navigation */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  z-index: 1000;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-nav a:hover { color: #f39c12; }
-
-/* Typography */
 h1, h2 { margin-bottom: 20px; }
 p { margin-bottom: 15px; line-height: 1.6; }
-
-/* Buttons */
 .cta {
   display: inline-block;
   padding: 10px 20px;
@@ -67,4 +66,13 @@ p { margin-bottom: 15px; line-height: 1.6; }
 .bg3 { background-image: url('../images/ppe-worker.png'); }
 .bg4 { background-image: url('../images/molten-metal.png'); }
 .bg5 { background-image: url('../images/robotics.png'); }
-.contact { background: #222; }
+.contact { background: #222; animation: none; }
+
+/* Shake animation */
+@keyframes shake {
+  0% { background-position: center; }
+  25% { background-position: center 5px; }
+  50% { background-position: center -5px; }
+  75% { background-position: center 5px; }
+  100% { background-position: center; }
+}
