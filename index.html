@@ -2,125 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ziyakha Engineering PTY LTD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=105">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. CORE RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { 
+            height: 100%; width: 100%; 
+            font-family: 'Montserrat', sans-serif; 
+            background: #000; color: #fff; overflow-x: hidden; 
+        }
+
+        /* --- 2. THE BACKGROUND SLIDESHOW --- */
+        #bg-layer {
+            position: fixed; inset: 0; z-index: -1;
+            background-size: cover; background-position: center;
+            /* Animation based on Word doc layout */
+            animation: slideshow 15s infinite ease-in-out, shake 20s infinite;
+        }
+
+        @keyframes slideshow {
+            0%, 30% { background-image: url("Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+            33%, 63% { background-image: url("Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+            66%, 100% { background-image: url("Images/WhatsApp Imagess 2026-01-20 at 15.48.17.jpeg"); }
+        }
+
+        @keyframes shake {
+            0% { transform: scale(1.02); }
+            50% { transform: scale(1.08) translate(5px, 5px); }
+            100% { transform: scale(1.02); }
+        }
+
+        /* --- 3. PREMIUM TOP RIGHT MENU --- */
+        nav { position: fixed; top: 25px; right: 25px; z-index: 2000; }
+        
+        .menu-btn {
+            background: rgba(0, 168, 107, 0.9);
+            color: #000; padding: 12px 25px;
+            border-radius: 30px; cursor: pointer;
+            font-weight: bold; border: 1px solid #fff;
+            letter-spacing: 1px; transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 168, 107, 0.4);
+        }
+
+        .nav-menu {
+            position: fixed; top: 0; right: -320px; width: 300px; height: 100%;
+            background: #0a0a0a; border-left: 3px solid #00A86B;
+            display: flex; flex-direction: column; padding: 40px 20px;
+            transition: 0.5s ease; z-index: 2001; overflow-y: auto;
+        }
+        .nav-menu.active { right: 0; }
+        .nav-menu a { 
+            color: white; text-decoration: none; margin-bottom: 20px; 
+            font-weight: bold; font-size: 1rem; text-transform: uppercase;
+        }
+        .nav-menu a:hover { color: #00A86B; }
+
+        /* --- 4. CONTENT SECTIONS --- */
+        section { 
+            display: none; min-height: 100vh; width: 100vw; 
+            padding: 80px 20px; flex-direction: column; align-items: center;
+        }
+        section:target { display: flex; }
+        #home:not(:target) { display: flex; align-items: center; justify-content: center; } 
+
+        .content-box {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px; border-radius: 15px;
+            border: 1px solid rgba(0, 168, 107, 0.5);
+            max-width: 800px; width: 100%; margin-bottom: 20px;
+        }
+
+        h2 { color: #00A86B; margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid #00A86B; display: inline-block; }
+        h3 { color: #00A86B; margin: 20px 0 10px 0; font-size: 1.1rem; }
+        p { line-height: 1.6; margin-bottom: 15px; font-size: 0.95rem; }
+        ul { list-style: none; text-align: left; margin-bottom: 15px; }
+        li { margin-bottom: 5px; padding-left: 20px; position: relative; font-size: 0.9rem; }
+        li::before { content: "✔"; color: #00A86B; position: absolute; left: 0; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; }
+    </style>
 </head>
 <body>
 
+    <div id="bg-layer"></div>
+
     <nav>
-        <div class="menu-icon" id="menuBtn">
-            <span></span><span></span><span></span>
-        </div>
-        <div class="nav-links" id="navLinks">
-            <div class="close-menu" id="closeBtn">&times; Close Menu</div>
-            <img src="Images/logo.png" alt="Ziyakha Logo" style="width: 130px; margin-bottom: 25px; align-self: center;">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#partnerships">Partnerships</a>
-            <a href="#affiliations">Affiliations</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <button class="menu-btn" onclick="toggleMenu()">MENU</button>
     </nav>
 
+    <div class="nav-menu" id="navMenu">
+        <p onclick="toggleMenu()" style="cursor:pointer; color:#00A86B; margin-bottom: 30px; font-weight: bold;">✕ CLOSE</p>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#affiliations">Affiliations</a>
+        <a href="#contact">Contact</a>
+    </div>
+
     <section id="home">
-        </section>
+        <h1 style="text-shadow: 2px 2px 10px #000; font-size: 2.5rem; text-align: center;">Welcome to <br><span style="color:#00A86B">ZIYAKHA ENGINEERING</span></h1>
+    </section>
 
     <section id="about">
-        <div class="content">
+        <div class="content-box">
             <h2>About Us</h2>
-            <div class="about-box">
-                <h3>Our Journey</h3>
-                <p>Ziyakha Engineering is a premier safety solutions provider, dedicated to transforming workplace cultures across Africa through compliance, education, and innovative strategy.</p>
-            </div>
-            <div class="vision-mission-container">
-                <div class="vm-box">
-                    <h3>Vision</h3>
-                    <p>“To spearhead the initiative of Safety and innovation across Africa while ensuring a safe working environment for all.”</p>
-                </div>
-                <div class="vm-box">
-                    <h3>Mission</h3>
-                    <p>"Delivering high-quality safety training that meets evolving industrial needs."</p>
-                </div>
-            </div>
+            <p>Welcome to ZIYAKHA ENGINEERING, your premier partner in construction engineering consultancy and safety training based in South Africa.</p>
+            <p>We are committed to excellence in high-risk environments, ensuring that your projects are both safe and successful. Our mission is to empower businesses with the knowledge and solutions they need to operate seamlessly.</p>
+            <p>With a team of seasoned experts, we combine extensive industry insights with innovative strategies, enabling your operations to excel in safety and productivity.</p>
         </div>
     </section>
 
     <section id="services">
-        <div class="content">
+        <div class="content-box">
             <h2>Our Services</h2>
-            <div class="service-container">
-                <div class="service-box">
-                    <h3>Construction Safety</h3>
-                    <ul>
-                        <li>OHSA Compliance</li>
-                        <li>First Aid Training</li>
-                        <li>Safety Files</li>
-                    </ul>
-                </div>
-                <div class="service-box">
-                    <h3>Mining Safety</h3>
-                    <ul>
-                        <li>MHSA Compliance</li>
-                        <li>Legal Liability</li>
-                        <li>Incident Investigation</li>
-                    </ul>
-                </div>
+            
+            <h3>OHS TRAINING</h3>
+            <p>We provide Accredited Safety training modules that enable organizations to function effectively. Our skilled staff ensures clients meet and surpass industry safety standards.</p>
+            <div class="grid">
+                <ul>
+                    <li>Mining</li>
+                    <li>Construction</li>
+                </ul>
+                <ul>
+                    <li>Heavy duty</li>
+                    <li>Manufacturing</li>
+                </ul>
+            </div>
+
+            <h3>CONSTRUCTION MATERIALS CONSULTANCY</h3>
+            <p>Specialists in business development, Project, Quality, and environmental management.</p>
+            <div class="grid">
+                <ul>
+                    <li>Feasibility Study</li>
+                    <li>Concrete Ready Mix Plant</li>
+                    <li>Aggreatre Crushing Plant</li>
+                    <li>Cement Blending Plant</li>
+                </ul>
+                <ul>
+                    <li>Mix designs & QA systems</li>
+                    <li>ISO 9001, 14001, 45001</li>
+                    <li>SABS Certification Auditing</li>
+                    <li>Capital Repayment & ROI</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section id="partnerships">
-        <div class="content">
+        <div class="content-box">
             <h2>Partnerships</h2>
-            <div class="about-box">
-                <p>We collaborate with industry-leading organizations to deliver comprehensive engineering and safety solutions across the continent.</p>
-            </div>
+            <p>(Partnership Logos Slide placeholder)</p>
         </div>
     </section>
 
     <section id="affiliations">
-        <div class="content">
+        <div class="content-box">
             <h2>Affiliations</h2>
-            <div class="vm-box">
-                <h3>Accreditations</h3>
-                <p>We are affiliated with major regulatory bodies ensuring all our training meets national standards and industrial requirements.</p>
-            </div>
+            <p>(Affiliation Logos Slide placeholder)</p>
         </div>
     </section>
-
-    <section id="contact">
-        <div class="content">
-            <h2>Contact Details</h2>
-            <div class="contact-details-grid">
-                <div class="contact-item">📍 136 2nd ST, RANDJESPARK, MIDRAND</div>
-                <div class="contact-item">📞 +27 65 936 4152</div>
-                <div class="contact-item">✉️ info@ziyakhaengineering@gmail.com</div>
-            </div>
-
-            <form action="#" class="quote-form">
-                <div class="form-row">
-                    <input type="text" placeholder="Name" required>
-                    <input type="text" placeholder="Surname" required>
-                </div>
-                <textarea placeholder="How can we help?" required></textarea>
-                <button type="submit" class="cta">Send Message</button>
-            </form>
-        </div>
-    </section>
-   <script>
-    const menuBtn = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuBtn.onclick = () => {
-        navLinks.classList.toggle('active');
-    };
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.onclick = () => navLinks.classList.remove('active');
-    });
-</script>
-</body>
-</html>
