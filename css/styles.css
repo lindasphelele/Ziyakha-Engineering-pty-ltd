@@ -22,63 +22,49 @@ section:target { display: flex !important; }
 body:has(section:target:not(#home)) #home { display: none !important; }
 
 section::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 1; }
-.content { position: relative; z-index: 10; width: 90%; max-width: 800px; margin: 0 auto; }
+.content { position: relative; z-index: 10; width: 90%; max-width: 850px; margin: 0 auto; overflow-y: auto; max-height: 90vh; }
 
 /* --- FONT CONTROL --- */
-h1 { font-size: 28px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; }
-h2 { font-size: 24px; color: #00A86B; margin-bottom: 25px; text-transform: uppercase; }
-h3 { font-size: 18px; color: #00A86B; margin-bottom: 12px; text-align: left; border-bottom: 1px solid #333; padding-bottom: 5px; }
+h1 { font-size: 28px; text-transform: uppercase; margin-bottom: 20px; }
+h2 { font-size: 24px; color: #00A86B; margin-bottom: 20px; text-transform: uppercase; }
+h3 { font-size: 18px; color: #00A86B; margin-bottom: 10px; text-align: left; }
+p { font-size: 15px; line-height: 1.5; }
 
 .logo-z { background: #00A86B; color: black; padding: 2px 10px; margin-right: 5px; font-weight: 900; }
 
 /* --- SERVICES GRID --- */
-.service-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap; 
-  margin-bottom: 20px;
-}
-
-.service-box {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 8px;
-  flex: 1;
-  min-width: 260px;
-  text-align: left;
-}
-
+.service-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.service-box { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; text-align: left; border: 1px solid #333; }
 ul { list-style: none; }
-ul li {
-  font-size: 14px;
-  margin-bottom: 6px;
-  padding-left: 20px;
-  position: relative;
-}
+ul li { font-size: 13px; margin-bottom: 6px; padding-left: 20px; position: relative; }
+ul li::before { content: "✔"; color: #00A86B; position: absolute; left: 0; }
 
-ul li::before {
-  content: "✔";
-  color: #00A86B;
-  position: absolute;
-  left: 0;
-}
+/* --- FORM STYLING --- */
+.quote-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 8px; }
+.form-row { display: flex; gap: 12px; }
+.quote-form input, .quote-form textarea { flex: 1; padding: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px; font-size: 14px; }
+.quote-form textarea { height: 80px; resize: none; }
+.quote-form input:focus, .quote-form textarea:focus { border-color: #00A86B; outline: none; }
 
-p { font-size: 16px; line-height: 1.5; }
+/* --- GET IN TOUCH --- */
+.get-in-touch { border-top: 1px solid #333; padding-top: 15px; }
+.get-in-touch h3 { text-align: center; margin-bottom: 10px; font-size: 16px; }
+.get-in-touch p { font-size: 14px; margin-bottom: 5px; }
+.get-in-touch a { color: #00A86B; text-decoration: none; font-weight: bold; }
 
-/* --- BUTTON & NAV --- */
-.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 14px; }
+/* --- NAVIGATION & BUTTONS --- */
+.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 14px; cursor: pointer; border: none; }
 nav { position: fixed; top: 20px; left: 20px; z-index: 1000; }
 .menu-icon span { display: block; height: 4px; width: 35px; background: #00A86B; margin-bottom: 6px; }
-
 .nav-links { position: fixed; top: 0; left: -100%; width: 280px; height: 100vh; background: #111; padding: 60px 30px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s; border-right: 3px solid #00A86B; }
 .nav-links.active { left: 0; }
 .nav-links a { color: white; text-decoration: none; font-size: 18px; font-weight: bold; }
-.close-menu { color: #00A86B; cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+.close-menu { color: #00A86B; cursor: pointer; margin-bottom: 10px; }
 
 /* Backgrounds */
 .bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
 .bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 .bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 .bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
-.contact { background-color: #111; }
+
+@media (max-width: 600px) { .form-row { flex-direction: column; } }
