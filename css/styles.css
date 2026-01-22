@@ -6,13 +6,21 @@ body, html {
     overflow: hidden; -webkit-text-size-adjust: 100%;
 }
 
-/* --- 2. THE FORCE SHAKE ANIMATION --- */
+/* --- 2. THE ANIMATIONS --- */
+/* Force Shake Effect */
 @keyframes backgroundShake {
-    0% { transform: scale(1.05) translate(0, 0); }
-    25% { transform: scale(1.1) translate(7px, 7px); }
-    50% { transform: scale(1.15) translate(-7px, -7px); }
-    75% { transform: scale(1.1) translate(7px, -7px); }
-    100% { transform: scale(1.05) translate(0, 0); }
+    0% { transform: scale(1.1) translate(0, 0); }
+    25% { transform: scale(1.15) translate(7px, 7px); }
+    50% { transform: scale(1.2) translate(-7px, -7px); }
+    75% { transform: scale(1.15) translate(7px, -7px); }
+    100% { transform: scale(1.1) translate(0, 0); }
+}
+
+/* 3-Picture Slideshow Logic */
+@keyframes homeSlideshow {
+    0%, 30% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+    33%, 63% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+    66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 }
 
 /* --- 3. SECTION LOGIC & BACKGROUNDS --- */
@@ -21,6 +29,7 @@ section {
     align-items: center; justify-content: center; position: absolute;
     top: 0; left: 0; overflow: hidden;
 }
+
 #home:not(:target) { display: flex; }
 section:target { display: flex !important; }
 body:has(section:target:not(#home)) #home { display: none !important; }
@@ -28,9 +37,15 @@ body:has(section:target:not(#home)) #home { display: none !important; }
 section::before {
     content: ""; position: absolute; inset: 0; z-index: 1;
     background-size: cover; background-position: center;
+    background-repeat: no-repeat;
     animation: backgroundShake 20s ease-in-out infinite;
     background-color: rgba(0, 0, 0, 0.85);
     background-blend-mode: darken;
+}
+
+/* Apply Slideshow to Home Only */
+#home::before {
+    animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite;
 }
 
 .content { 
@@ -39,7 +54,7 @@ section::before {
     width: 90%; 
     max-width: 900px; 
     text-align: center; 
-    padding-bottom: 80px; 
+    padding-bottom: 100px; /* Space for persistent footer */
     max-height: 80vh; 
     overflow-y: auto; 
 }
@@ -49,14 +64,14 @@ section::before {
 .logo-wrapper { display: flex; justify-content: center; margin-bottom: 20px; width: 100%; }
 .main-logo {
     display: block; width: 100%; max-width: 450px; height: auto;
-    filter: drop-shadow(0px 0px 15px rgba(0, 168, 107, 0.5));
+    filter: drop-shadow(0px 0px 15px rgba(0, 168, 107, 0.6));
 }
 
 /* --- 5. BOXES & GRID --- */
-h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; }
+h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; }
 .about-box, .service-box, .leadership-card, .vm-box, .advantage-box {
     background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 15px;
+    backdrop-filter: blur(10px); padding: 25px; border-radius: 12px; text-align: left; margin-bottom: 15px;
 }
 .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left; }
 .contact-item { background: rgba(0, 168, 107, 0.1); border: 1px solid rgba(0, 168, 107, 0.2); padding: 12px; border-radius: 8px; font-size: 13px; }
@@ -67,42 +82,41 @@ h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; }
 nav { 
     position: fixed; 
     top: 25px; 
-    right: 25px; /* Changed from left to right */
+    right: 25px; 
     z-index: 10000; 
 }
 
-.menu-icon { cursor: pointer; }
-.menu-icon span { display: block; height: 4px; width: 35px; background: #00A86B; margin-bottom: 6px; }
+.menu-icon { cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; }
+.menu-icon span { display: block; height: 4px; width: 30px; background: #00A86B; margin-bottom: 5px; }
 
 .nav-links {
     position: fixed; 
     top: 0; 
-    right: -100%; /* Now hides to the right */
+    right: -100%; 
     width: 280px; 
     height: 100vh;
-    background: #111; 
+    background: #0a0a0a; 
     padding: 40px 30px; 
     display: flex; 
     flex-direction: column;
-    transition: 0.4s ease-in-out; 
-    border-left: 3px solid #00A86B; /* Border moved to the left side of the menu */
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+    border-left: 3px solid #00A86B; 
     z-index: 10001;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.5);
 }
 
-.nav-links.active { 
-    right: 0; /* Slides in from the right */
-    left: auto; 
-}
+.nav-links.active { right: 0; }
+.nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.nav-links a:hover { color: #00A86B; }
 
-.nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 15px; font-weight: 600; }
-
-.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; }
+.cta { display: inline-block; padding: 14px 35px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; transition: 0.3s; }
+.cta:hover { background: #008f5b; transform: translateY(-2px); }
 
 .quote-form { display: flex; flex-direction: column; gap: 10px; }
 .form-row { display: flex; gap: 10px; }
-.quote-form input, .quote-form textarea { flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px; }
+.quote-form input, .quote-form textarea { flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid #333; color: white; border-radius: 4px; font-family: inherit; }
 
-/* PERSISTENT FOOTER FIX */
+/* PERSISTENT FOOTER */
 footer { 
     position: fixed; 
     bottom: 0; 
@@ -117,17 +131,6 @@ footer {
 .footer-links { margin-bottom: 5px; }
 .footer-links a { color: #00A86B; text-decoration: none; font-size: 12px; margin: 0 10px; font-weight: bold; }
 
-/* --- 7. ASSIGN BACKGROUNDS --- */
-#home::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+/* --- 7. ASSIGN OTHER BACKGROUNDS --- */
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-#services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-#advantage::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
-#leadership::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-#contact::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-
-/* --- 8. MOBILE RESPONSIVE --- */
-@media (max-width: 600px) {
-    .main-logo { max-width: 280px; }
-    .contact-details-grid, .form-row, .vision-mission-container { flex-direction: column; grid-template-columns: 1fr; }
-    .content { padding-bottom: 120px; } 
-}
+#services::before
