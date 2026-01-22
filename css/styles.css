@@ -1,10 +1,23 @@
-/* --- RESET --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body, html { height: 100%; width: 100%; font-family: 'Montserrat', sans-serif; background-color: #111; color: white; overflow: hidden; }
+/* --- 1. GLOBAL RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* --- PAGE LOGIC --- */
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  overflow: hidden; /* Prevents scrolling between separate pages */
+  -webkit-text-size-adjust: 100%; /* Prevents mobile font scaling issues */
+}
+
+/* --- 2. SINGLE PAGE NAVIGATION LOGIC --- */
 section {
-  display: none;
+  display: none; /* All sections hidden by default */
   height: 100vh;
   width: 100vw;
   flex-direction: column;
@@ -14,57 +27,188 @@ section {
   background-size: cover;
   background-position: center;
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
 }
 
+/* Logic to show only the active section */
 #home:not(:target) { display: flex; }
 section:target { display: flex !important; }
 body:has(section:target:not(#home)) #home { display: none !important; }
 
-section::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 1; }
-.content { position: relative; z-index: 10; width: 90%; max-width: 850px; margin: 0 auto; overflow-y: auto; max-height: 90vh; }
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82); /* Dark overlay for text readability */
+  z-index: 1;
+}
 
-/* --- FONT CONTROL --- */
-h1 { font-size: 28px; text-transform: uppercase; margin-bottom: 20px; }
-h2 { font-size: 24px; color: #00A86B; margin-bottom: 20px; text-transform: uppercase; }
-h3 { font-size: 18px; color: #00A86B; margin-bottom: 10px; text-align: left; }
-p { font-size: 15px; line-height: 1.5; }
+.content {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: auto; /* Allows scrolling inside a section if content is long */
+  max-height: 95vh;
+}
 
-.logo-z { background: #00A86B; color: black; padding: 2px 10px; margin-right: 5px; font-weight: 900; }
+/* --- 3. TYPOGRAPHY (FIXED SIZES) --- */
+h1 {
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
 
-/* --- SERVICES GRID --- */
-.service-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-.service-box { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; text-align: left; border: 1px solid #333; }
-ul { list-style: none; }
-ul li { font-size: 13px; margin-bottom: 6px; padding-left: 20px; position: relative; }
-ul li::before { content: "✔"; color: #00A86B; position: absolute; left: 0; }
+h2 {
+  font-size: 26px;
+  color: #00A86B; /* Jade Green */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-/* --- FORM STYLING --- */
-.quote-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 8px; }
-.form-row { display: flex; gap: 12px; }
-.quote-form input, .quote-form textarea { flex: 1; padding: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px; font-size: 14px; }
-.quote-form textarea { height: 80px; resize: none; }
-.quote-form input:focus, .quote-form textarea:focus { border-color: #00A86B; outline: none; }
+h3 {
+  font-size: 18px;
+  color: #00A86B;
+  margin-bottom: 12px;
+}
 
-/* --- GET IN TOUCH --- */
-.get-in-touch { border-top: 1px solid #333; padding-top: 15px; }
-.get-in-touch h3 { text-align: center; margin-bottom: 10px; font-size: 16px; }
-.get-in-touch p { font-size: 14px; margin-bottom: 5px; }
-.get-in-touch a { color: #00A86B; text-decoration: none; font-weight: bold; }
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
 
-/* --- NAVIGATION & BUTTONS --- */
-.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 14px; cursor: pointer; border: none; }
-nav { position: fixed; top: 20px; left: 20px; z-index: 1000; }
-.menu-icon span { display: block; height: 4px; width: 35px; background: #00A86B; margin-bottom: 6px; }
-.nav-links { position: fixed; top: 0; left: -100%; width: 280px; height: 100vh; background: #111; padding: 60px 30px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s; border-right: 3px solid #00A86B; }
+.logo-z {
+  background: #00A86B;
+  color: #000;
+  padding: 2px 12px;
+  margin-right: 8px;
+  font-weight: 900;
+  border-radius: 2px;
+}
+
+/* --- 4. NAVIGATION & BUTTONS --- */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-icon {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 4px;
+  width: 35px;
+  background: #00A86B;
+  margin-bottom: 6px;
+  border-radius: 2px;
+}
+
+.nav-links {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #111;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 3px solid #00A86B;
+}
+
 .nav-links.active { left: 0; }
-.nav-links a { color: white; text-decoration: none; font-size: 18px; font-weight: bold; }
-.close-menu { color: #00A86B; cursor: pointer; margin-bottom: 10px; }
 
-/* Backgrounds */
-.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
-@media (max-width: 600px) { .form-row { flex-direction: column; } }
+.nav-links a:hover { color: #00A86B; }
+
+.close-menu {
+  color: #00A86B;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.cta {
+  display: inline-block;
+  padding: 14px 35px;
+  background: #00A86B;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  background: #008f5a;
+  transform: translateY(-2px);
+}
+
+/* --- 5. SECTION SPECIFIC STYLES --- */
+
+/* Services Grid */
+.service-container { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 25px; }
+.service-box { 
+  background: rgba(255, 255, 255, 0.05); 
+  padding: 20px; 
+  border-radius: 8px; 
+  flex: 1; 
+  min-width: 280px; 
+  text-align: left; 
+  border: 1px solid #333;
+}
+ul { list-style: none; }
+ul li { font-size: 14px; margin-bottom: 8px; padding-left: 25px; position: relative; }
+ul li::before { content: "✔"; color: #00A86B; position: absolute; left: 0; font-weight: bold; }
+
+/* Vision & Mission */
+.vision-mission-container { display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; }
+.vm-box { 
+  background: rgba(255, 255, 255, 0.04); 
+  padding: 25px; 
+  border-radius: 12px; 
+  border-left: 5px solid #00A86B; 
+  text-align: left; 
+}
+.vm-box h3 { margin-bottom: 10px; text-transform: uppercase; font-size: 16px; }
+
+/* Strategic Advantage */
+.advantage-box { 
+  background: rgba(0, 168, 107, 0.05); 
+  padding: 30px; 
+  border-radius: 12px; 
+  border: 1px solid rgba(0, 168, 107, 0.2); 
+  text-align: left; 
+}
+.advantage-box strong { color: #00A86B; text-transform: uppercase; font-size: 13px; }
+
+/* Leadership Card */
+.leadership-card { 
+  background: rgba(255, 255, 255, 0.05); 
+  padding: 30px; 
+  border-radius: 12px; 
+  text-align: left;
