@@ -7,7 +7,6 @@ body, html {
 }
 
 /* --- 2. THE ANIMATIONS --- */
-/* Force Shake Effect */
 @keyframes backgroundShake {
     0% { transform: scale(1.1) translate(0, 0); }
     25% { transform: scale(1.15) translate(7px, 7px); }
@@ -16,11 +15,16 @@ body, html {
     100% { transform: scale(1.1) translate(0, 0); }
 }
 
-/* 3-Picture Slideshow Logic */
 @keyframes homeSlideshow {
     0%, 30% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
     33%, 63% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
     66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(0, 168, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0); }
 }
 
 /* --- 3. SECTION LOGIC & BACKGROUNDS --- */
@@ -43,28 +47,21 @@ section::before {
     background-blend-mode: darken;
 }
 
-/* Apply Slideshow to Home Only */
 #home::before {
     animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite;
 }
 
+/* --- 4. CONTENT & HOME CLEANUP --- */
 .content { 
-    position: relative; 
-    z-index: 10; 
-    width: 90%; 
-    max-width: 900px; 
-    text-align: center; 
-    padding-bottom: 100px; /* Space for persistent footer */
-    max-height: 80vh; 
-    overflow-y: auto; 
+    position: relative; z-index: 10; width: 90%; max-width: 900px; 
+    text-align: center; padding-bottom: 80px; max-height: 80vh; overflow-y: auto; 
 }
 .content::-webkit-scrollbar { display: none; }
 
-/* --- 4. LOGO STYLING --- */
-.logo-wrapper { display: flex; justify-content: center; margin-bottom: 20px; width: 100%; }
-.main-logo {
-    display: block; width: 100%; max-width: 450px; height: auto;
-    filter: drop-shadow(0px 0px 15px rgba(0, 168, 107, 0.6));
+/* Hide Logo and Tagline specifically on Home */
+#home .logo-wrapper, 
+#home p { 
+    display: none !important; 
 }
 
 /* --- 5. BOXES & GRID --- */
@@ -75,62 +72,42 @@ h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 
 }
 .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left; }
 .contact-item { background: rgba(0, 168, 107, 0.1); border: 1px solid rgba(0, 168, 107, 0.2); padding: 12px; border-radius: 8px; font-size: 13px; }
-.vision-mission-container, .service-container { display: flex; gap: 15px; flex-wrap: wrap; }
-.vm-box { flex: 1; border-left: 4px solid #00A86B; }
 
-/* --- 6. NAV (TOP RIGHT), BUTTONS, FOOTER --- */
-nav { 
-    position: fixed; 
-    top: 25px; 
-    right: 25px; 
-    z-index: 10000; 
-}
-
-.menu-icon { cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; }
+/* --- 6. NAV, ACTION BAR (CTA), & FOOTER --- */
+nav { position: fixed; top: 25px; right: 25px; z-index: 10000; }
+.menu-icon { cursor: pointer; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; border: 1px solid #00A86B; }
 .menu-icon span { display: block; height: 4px; width: 30px; background: #00A86B; margin-bottom: 5px; }
 
 .nav-links {
-    position: fixed; 
-    top: 0; 
-    right: -100%; 
-    width: 280px; 
-    height: 100vh;
-    background: #0a0a0a; 
-    padding: 40px 30px; 
-    display: flex; 
-    flex-direction: column;
-    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
-    border-left: 3px solid #00A86B; 
-    z-index: 10001;
-    box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: #0a0a0a; padding: 40px 30px; display: flex; flex-direction: column;
+    transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); border-left: 3px solid #00A86B; z-index: 10001;
 }
-
 .nav-links.active { right: 0; }
-.nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-.nav-links a:hover { color: #00A86B; }
+.nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; }
 
-.cta { display: inline-block; padding: 14px 35px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; transition: 0.3s; }
-.cta:hover { background: #008f5b; transform: translateY(-2px); }
-
-.quote-form { display: flex; flex-direction: column; gap: 10px; }
-.form-row { display: flex; gap: 10px; }
-.quote-form input, .quote-form textarea { flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid #333; color: white; border-radius: 4px; font-family: inherit; }
-
-/* PERSISTENT FOOTER */
-footer { 
-    position: fixed; 
-    bottom: 0; 
-    left: 0;
-    width: 100%; 
-    background: rgba(0,0,0,0.95); 
-    padding: 15px 10px; 
-    text-align: center; 
-    border-top: 1px solid #00A86B; 
-    z-index: 9999; 
+/* THE ACTION BAR BUTTON */
+.cta { 
+    display: inline-block; padding: 18px 45px; 
+    background: linear-gradient(135deg, #00A86B 0%, #007d4f 100%); 
+    color: white; font-weight: bold; border-radius: 50px; 
+    text-decoration: none; text-transform: uppercase; border: none; 
+    transition: 0.3s; animation: pulseGlow 3s infinite;
+    letter-spacing: 2px;
 }
-.footer-links { margin-bottom: 5px; }
-.footer-links a { color: #00A86B; text-decoration: none; font-size: 12px; margin: 0 10px; font-weight: bold; }
+.cta:hover { transform: scale(1.05); background: #00c980; }
+
+/* HIDE FOOTER ON HOME */
+footer { 
+    position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.95); 
+    padding: 15px 10px; text-align: center; border-top: 1px solid #00A86B; z-index: 9999; 
+}
+#home:not(:target) ~ footer, 
+body:not(:has(section:target)) footer { 
+    display: none !important; 
+}
 
 /* --- 7. ASSIGN OTHER BACKGROUNDS --- */
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-#services::before
+#services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+#advantage::before { background-image: url("../Images/WhatsApp Image 2026-01-2
