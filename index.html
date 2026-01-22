@@ -12,11 +12,11 @@
     <div id="bg-layer"></div>
 
     <nav>
-        <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+        <button class="menu-btn" id="menuBtn">MENU</button>
     </nav>
 
     <div class="nav-menu" id="navMenu">
-        <p onclick="toggleMenu()" class="close-btn">✕ CLOSE</p>
+        <p class="close-btn" id="closeBtn">✕ CLOSE</p>
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
@@ -24,95 +24,31 @@
         <a href="#affiliations">Affiliations</a>
         <a href="#contact">Contact</a>
     </div>
-    <section id="about">
-        <div class="content-box">
-            <h2>About Us</h2>
-            <p>Welcome to ZIYAKHA ENGINEERING, your premier partner in construction engineering consultancy and safety training based in South Africa.</p>
-            <p>We are committed to excellence in high-risk environments, ensuring that your projects are both safe and successful.</p>
-            <p>Our mission is to empower businesses with the knowledge and solutions they need to operate seamlessly and efficiently.</p>
-            <p>With a team of seasoned experts, we combine extensive industry insights with innovative strategies, enabling your operations to not only meet compliance standards but also excel in safety and productivity.</p>
-        </div>
+
+    <section id="home" class="hero">
+        <h1 class="hero-text">Welcome to <br><span>ZIYAKHA ENGINEERING</span></h1>
     </section>
 
-    <section id="services">
-        <div class="content-box">
-            <h2>Our Services</h2>
-            
-            <h3>OHS TRAINING</h3>
-            <p>We provide Accredited Safety training modules that enable organizations to function effectively.</p>
-            <p>Our skilled staff is committed to keeping up with the most recent safety requirements and best practices to ensure our clients meet and surpass industry safety standards.</p>
-            <div class="grid">
-                <ul>
-                    <li>Mining</li>
-                    <li>Construction</li>
-                </ul>
-                <ul>
-                    <li>Heavy duty</li>
-                    <li>Manufacturing</li>
-                </ul>
+    <div class="main-container">
+        <section id="about" class="content-section">
+            <div class="content-box">
+                <h2>About Us</h2>
+                <p>Welcome to ZIYAKHA ENGINEERING, your premier partner in construction engineering consultancy and safety training based in South Africa. We are committed to excellence in high-risk environments, ensuring that your projects are both safe and successful.</p>
+                <p>Our mission is to empower businesses with the knowledge and solutions they need to operate seamlessly and efficiently. With a team of seasoned experts, we combine extensive industry insights with innovative strategies.</p>
             </div>
+        </section>
 
-            <h3>CONSTRUCTION MATERIALS CONSULTANCY</h3>
-            <p>We are a reasonable stakeholder in the construction industry with a team of specialists in fields of business development, Project, Quality and environmental management.</p>
-            <p>Servicing both start ups and existing companies in construction materials.</p>
-            
-            <div class="grid">
-                <div>
-                    <h4>Specializations</h4>
+        <section id="services" class="content-section">
+            <div class="content-box">
+                <h2>Services</h2>
+                
+                <h3>OHS Training</h3>
+                <p>We provide Accredited Safety training modules that enable organizations to function effectively. Our staff is committed to surpassing industry safety standards in Mining, Construction, Heavy Duty, and Manufacturing.</p>
+
+                <h3>Construction Materials Consultancy</h3>
+                <p>Specialists in business development, Project, Quality, and environmental management.</p>
+                <div class="grid">
                     <ul>
                         <li>Feasibility Study</li>
                         <li>Concrete Ready Mix Plant</li>
-                        <li>Aggregate Crushing Plant</li>
-                        <li>Brick, Blocks & Pavers Plant</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Quality & ISO</h4>
-                    <ul>
-                        <li>ISO 9001:2015</li>
-                        <li>ISO 14001:2015</li>
-                        <li>SABS Certification</li>
-                        <li>Mix designs & QA systems</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="partnerships">
-        <div class="content-box">
-            <h2>Partnerships</h2>
-            <p>(Logos slides)</p>
-        </div>
-    </section>
-
-    <section id="affiliations">
-        <div class="content-box">
-            <h2>Affiliations</h2>
-            <p>(Logo slides)</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="content-box">
-            <h2>Contact Details</h2>
-            <div class="contact-card">
-                <p>📍 Midrand, South Africa</p>
-                <p>📞 +27 65 936 4152</p>
-                <p>✉️ info@ziyakha.co.za</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+                        <li>Aggregate Cr
