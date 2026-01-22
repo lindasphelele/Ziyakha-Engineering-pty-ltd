@@ -21,12 +21,6 @@ body, html {
     66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 }
 
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0.7); }
-    70% { box-shadow: 0 0 0 20px rgba(0, 168, 107, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0); }
-}
-
 /* --- 3. SECTION LOGIC & BACKGROUNDS --- */
 section {
     display: none; height: 100vh; width: 100vw; flex-direction: column;
@@ -51,16 +45,8 @@ section::before {
     animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite;
 }
 
-/* --- 4. CONTENT & HOME CLEANUP --- */
-.content { 
-    position: relative; z-index: 10; width: 90%; max-width: 900px; 
-    text-align: center; padding-bottom: 80px; max-height: 80vh; overflow-y: auto; 
-}
-.content::-webkit-scrollbar { display: none; }
-
-/* Hide Logo and Tagline specifically on Home */
-#home .logo-wrapper, 
-#home p { 
+/* --- 4. HOME CLEANUP (Removing All Content) --- */
+#home .content { 
     display: none !important; 
 }
 
@@ -73,7 +59,7 @@ h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 
 .contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left; }
 .contact-item { background: rgba(0, 168, 107, 0.1); border: 1px solid rgba(0, 168, 107, 0.2); padding: 12px; border-radius: 8px; font-size: 13px; }
 
-/* --- 6. NAV, ACTION BAR (CTA), & FOOTER --- */
+/* --- 6. NAV & MENU --- */
 nav { position: fixed; top: 25px; right: 25px; z-index: 10000; }
 .menu-icon { cursor: pointer; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; border: 1px solid #00A86B; }
 .menu-icon span { display: block; height: 4px; width: 30px; background: #00A86B; margin-bottom: 5px; }
@@ -86,28 +72,29 @@ nav { position: fixed; top: 25px; right: 25px; z-index: 10000; }
 .nav-links.active { right: 0; }
 .nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; }
 
-/* THE ACTION BAR BUTTON */
-.cta { 
-    display: inline-block; padding: 18px 45px; 
-    background: linear-gradient(135deg, #00A86B 0%, #007d4f 100%); 
-    color: white; font-weight: bold; border-radius: 50px; 
-    text-decoration: none; text-transform: uppercase; border: none; 
-    transition: 0.3s; animation: pulseGlow 3s infinite;
-    letter-spacing: 2px;
-}
-.cta:hover { transform: scale(1.05); background: #00c980; }
+.cta { display: inline-block; padding: 14px 35px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; border: none; }
 
-/* HIDE FOOTER ON HOME */
+/* FOOTER LOGIC (Hidden on Home) */
 footer { 
     position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.95); 
     padding: 15px 10px; text-align: center; border-top: 1px solid #00A86B; z-index: 9999; 
 }
+
+/* This rule hides the footer when the URL is just the home page or #home */
 #home:not(:target) ~ footer, 
-body:not(:has(section:target)) footer { 
+body:not(:has(section:target)) footer,
+section:target#home ~ footer { 
     display: none !important; 
 }
 
 /* --- 7. ASSIGN OTHER BACKGROUNDS --- */
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 #services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-#advantage::before { background-image: url("../Images/WhatsApp Image 2026-01-2
+#advantage::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
+#leadership::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+#contact::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+
+/* --- 8. MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    .contact-details-grid { grid-template-columns: 1fr; }
+}
