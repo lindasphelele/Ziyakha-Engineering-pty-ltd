@@ -3,7 +3,10 @@ function toggleMenu() {
     navLinks.classList.toggle('active');
 }
 
-// Reset page view on link click
-window.addEventListener("hashchange", function() {
-    window.scrollTo(0, 0);
-});
+// Optional: Close menu if user clicks outside of it
+window.onclick = function(event) {
+    const navLinks = document.getElementById('navLinks');
+    if (event.target.className === 'section') {
+        navLinks.classList.remove('active');
+    }
+}
