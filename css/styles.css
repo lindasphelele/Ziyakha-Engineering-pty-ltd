@@ -5,30 +5,32 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
+  height: 100%;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: #111;
   color: white;
-  /* Fixed base size */
-  font-size: 16px; 
-  overflow: hidden; 
+  overflow: hidden; /* Stops sections from stacking/scrolling */
 }
 
-/* 2. Page Switching Logic */
-.page-section {
-  display: none;
+/* 2. One-Page Logic */
+section {
+  display: none; /* Hide everything by default */
   height: 100vh;
   width: 100vw;
-  padding: 20px;
-  text-align: center;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background-size: cover;
   background-position: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* Show logic */
+/* Show Home if no link is clicked, OR show the clicked link */
 #home:not(:target) { display: flex; }
 section:target { display: flex !important; }
 body:has(section:target:not(#home)) #home { display: none !important; }
@@ -37,7 +39,8 @@ section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
 .content {
@@ -45,45 +48,37 @@ section::before {
   z-index: 10;
   width: 90%;
   max-width: 800px;
-  margin: 0 auto;
 }
 
-/* 3. THE FONT FIX (Strict Sizes) */
+/* 3. FONT FIX - Standard Fixed Pixels */
 h1 {
-  font-family: Arial, sans-serif;
-  /* Forced small size for mobile/standard */
-  font-size: 28px !important; 
+  font-size: 32px; 
   text-transform: uppercase;
   margin-bottom: 20px;
-  line-height: 1.2;
 }
 
-h1::first-letter {
+/* Safer Logo 'Z' */
+.logo-z {
   background: #00A86B;
   color: black;
-  padding: 5px 10px;
+  padding: 2px 10px;
   margin-right: 10px;
+  font-weight: 900;
 }
 
 h2 {
-  font-size: 24px !important;
+  font-size: 24px;
   color: #00A86B;
   margin-bottom: 20px;
 }
 
 p {
-  font-size: 16px !important;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
-/* 4. Desktop Specific Sizes (Prevents "Huge" Look on laptops) */
-@media (min-width: 1024px) {
-  h1 { font-size: 40px !important; }
-  h2 { font-size: 30px !important; }
-  p { font-size: 18px !important; }
-}
-
-/* 5. Navigation */
+/* 4. Navigation Control */
 nav {
   position: fixed;
   top: 20px;
@@ -92,7 +87,7 @@ nav {
 }
 
 .menu-icon {
-  width: 40px;
+  width: 35px;
   cursor: pointer;
 }
 
@@ -101,21 +96,20 @@ nav {
   height: 4px;
   background: #00A86B;
   margin-bottom: 6px;
-  border-radius: 2px;
 }
 
 .nav-links {
   position: fixed;
   top: 0;
-  left: -100%; 
-  width: 300px;
+  left: -100%;
+  width: 280px;
   height: 100vh;
-  background: #151515;
+  background: #111;
   padding: 60px 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s;
   border-right: 3px solid #00A86B;
 }
 
@@ -124,11 +118,10 @@ nav {
 .nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-/* Button */
 .cta {
   display: inline-block;
   padding: 12px 30px;
@@ -137,12 +130,10 @@ nav {
   text-decoration: none;
   font-weight: bold;
   border-radius: 4px;
-  font-size: 14px;
 }
 
 /* Backgrounds */
-#home { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-#services { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-#vision { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-#advantage { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
-#leadership { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
