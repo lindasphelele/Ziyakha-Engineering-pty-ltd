@@ -1,14 +1,9 @@
-/* IF YOU SEE GREY BACKGROUND → CSS IS WORKING */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* 🔥 IF YOU SEE A GREY BACKGROUND, CSS IS LOADING */
 
 body {
+  background: #dcdcdc;
   font-family: Arial, sans-serif;
-  background: #eaeaea; /* 🔥 TEST COLOR */
+  margin: 0;
 }
 
 /* ACTION BAR */
@@ -22,18 +17,17 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  z-index: 1000;
 }
 
 .logo {
   color: #00a86b;
-  font-size: 22px;
   font-weight: bold;
+  font-size: 22px;
 }
 
 .action-bar nav a {
   color: white;
-  margin-left: 25px;
+  margin-left: 20px;
   text-decoration: none;
 }
 
@@ -51,7 +45,6 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1s;
 }
 
 .slide.active {
