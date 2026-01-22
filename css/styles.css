@@ -8,11 +8,11 @@ body, html {
 
 /* --- 2. THE ANIMATIONS --- */
 @keyframes backgroundShake {
-    0% { transform: scale(1.1) translate(0, 0); }
-    25% { transform: scale(1.15) translate(7px, 7px); }
-    50% { transform: scale(1.2) translate(-7px, -7px); }
-    75% { transform: scale(1.15) translate(7px, -7px); }
-    100% { transform: scale(1.1) translate(0, 0); }
+    0% { transform: scale(1.05) translate(0, 0); }
+    25% { transform: scale(1.08) translate(5px, 5px); }
+    50% { transform: scale(1.1) translate(-5px, -5px); }
+    75% { transform: scale(1.08) translate(5px, -5px); }
+    100% { transform: scale(1.05) translate(0, 0); }
 }
 
 @keyframes homeSlideshow {
@@ -21,7 +21,7 @@ body, html {
     66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 }
 
-/* --- 3. SECTION LOGIC & BACKGROUNDS --- */
+/* --- 3. SECTION LOGIC & BRIGHT BACKGROUNDS --- */
 section {
     display: none; height: 100vh; width: 100vw; flex-direction: column;
     align-items: center; justify-content: center; position: absolute;
@@ -37,32 +37,40 @@ section::before {
     background-size: cover; background-position: center;
     background-repeat: no-repeat;
     animation: backgroundShake 20s ease-in-out infinite;
-    background-color: rgba(0, 0, 0, 0.85);
-    background-blend-mode: darken;
+    /* REMOVED DARKEN MODE - Added light transparent overlay for clarity */
+    background-color: rgba(0, 0, 0, 0.2); 
 }
 
 #home::before {
     animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite;
+    background-color: transparent; /* No darkness on home page at all */
 }
 
-/* --- 4. HOME CLEANUP (Removing All Content) --- */
+/* --- 4. HOME CLEANUP --- */
 #home .content { 
     display: none !important; 
 }
 
-/* --- 5. BOXES & GRID --- */
-h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; }
+/* --- 5. BOXES (Keeping dark for text readability on other pages) --- */
+h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 .about-box, .service-box, .leadership-card, .vm-box, .advantage-box {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); padding: 25px; border-radius: 12px; text-align: left; margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.7); /* Dark boxes so white text is readable on bright images */
+    border: 1px solid rgba(0, 168, 107, 0.3);
+    backdrop-filter: blur(8px); padding: 25px; border-radius: 12px; text-align: left; margin-bottom: 15px;
 }
-.contact-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; text-align: left; }
-.contact-item { background: rgba(0, 168, 107, 0.1); border: 1px solid rgba(0, 168, 107, 0.2); padding: 12px; border-radius: 8px; font-size: 13px; }
 
 /* --- 6. NAV & MENU --- */
 nav { position: fixed; top: 25px; right: 25px; z-index: 10000; }
-.menu-icon { cursor: pointer; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; border: 1px solid #00A86B; }
-.menu-icon span { display: block; height: 4px; width: 30px; background: #00A86B; margin-bottom: 5px; }
+.menu-icon { 
+    cursor: pointer; 
+    background: rgba(0,0,0,0.7); /* Keep menu icon visible */
+    padding: 12px; 
+    border-radius: 50%; 
+    border: 2px solid #00A86B; 
+    box-shadow: 0 0 15px rgba(0, 168, 107, 0.4);
+}
+.menu-icon span { display: block; height: 3px; width: 25px; background: #00A86B; margin-bottom: 4px; }
+.menu-icon span:last-child { margin-bottom: 0; }
 
 .nav-links {
     position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
@@ -72,15 +80,11 @@ nav { position: fixed; top: 25px; right: 25px; z-index: 10000; }
 .nav-links.active { right: 0; }
 .nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; }
 
-.cta { display: inline-block; padding: 14px 35px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; border: none; }
-
 /* FOOTER LOGIC (Hidden on Home) */
 footer { 
-    position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.95); 
+    position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.85); 
     padding: 15px 10px; text-align: center; border-top: 1px solid #00A86B; z-index: 9999; 
 }
-
-/* This rule hides the footer when the URL is just the home page or #home */
 #home:not(:target) ~ footer, 
 body:not(:has(section:target)) footer,
 section:target#home ~ footer { 
