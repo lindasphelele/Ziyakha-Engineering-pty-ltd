@@ -1,57 +1,162 @@
-/* --- FOOTER STYLING --- */
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+/* --- 1. CORE RESET & PREVENT OVER-SCALING --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
   width: 100%;
-  background: rgba(10, 10, 10, 0.95);
-  padding: 15px 0;
-  z-index: 100;
-  border-top: 1px solid rgba(0, 168, 107, 0.3);
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  overflow: hidden; /* Essential for the single-page app feel */
+  -webkit-text-size-adjust: 100%; 
+}
+
+/* --- 2. SINGLE-PAGE TRANSITIONS --- */
+section {
+  display: none; 
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-bottom: 60px; /* Space for the footer */
+}
+
+/* Logic: Show home by default, then switch based on URL #hash */
+#home:not(:target) { display: flex; }
+section:target { display: flex !important; }
+body:has(section:target:not(#home)) #home { display: none !important; }
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82); 
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-y: auto;
+  max-height: 85vh; /* Prevents content from hitting the footer */
+  padding: 20px;
+}
+
+/* --- 3. TYPOGRAPHY & BRANDING --- */
+h1 { font-size: 32px; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px; }
+h2 { font-size: 26px; color: #00A86B; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+h3 { font-size: 18px; color: #00A86B; margin-bottom: 12px; }
+p { font-size: 15px; line-height: 1.6; margin-bottom: 15px; color: #e0e0e0; }
+
+.logo-z {
+  background: #00A86B;
+  color: #000;
+  padding: 2px 12px;
+  margin-right: 8px;
+  font-weight: 900;
+  border-radius: 2px;
+}
+
+/* --- 4. NAVIGATION --- */
+nav { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+.menu-icon { cursor: pointer; padding: 10px; }
+.menu-icon span { display: block; height: 4px; width: 35px; background: #00A86B; margin-bottom: 6px; border-radius: 2px; }
+
+.nav-links {
+  position: fixed; top: 0; left: -100%; width: 280px; height: 100vh;
+  background: #111; padding: 60px 30px; display: flex; flex-direction: column; gap: 20px;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-right: 3px solid #00A86B;
+}
+.nav-links.active { left: 0; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 18px; font-weight: 600; }
+.nav-links a:hover { color: #00A86B; }
+.close-menu { color: #00A86B; cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+
+/* --- 5. COMPONENT BOXES (ABOUT, SERVICES, ADVANTAGE) --- */
+.about-box, .service-box, .advantage-box, .leadership-card, .vm-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.service-container, .vision-mission-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.vm-box { flex: 1; border-left: 4px solid #00A86B; }
+
+.core-values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.value-tag {
+  background: rgba(0, 168, 107, 0.15);
+  border: 1px solid #00A86B;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
   text-align: center;
 }
 
-.footer-content {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* --- 6. FORMS & BUTTONS --- */
+.cta {
+  display: inline-block; padding: 14px 35px; background: #00A86B; color: #000;
+  text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase;
+  font-size: 13px; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px;
 }
+.cta:hover { background: #008f5a; transform: translateY(-2px); }
 
-.footer-content p {
-  font-size: 12px;
-  color: #888;
-  margin: 0;
+.quote-form { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+.form-row { display: flex; gap: 12px; }
+.quote-form input, .quote-form textarea {
+  flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 4px;
 }
+.quote-form input:focus { border-color: #00A86B; outline: none; }
 
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+/* --- 7. FOOTER (FIXED) --- */
+footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: rgba(10, 10, 10, 0.95); padding: 12px 0;
+  border-top: 1px solid rgba(0, 168, 107, 0.3); z-index: 100; text-align: center;
 }
+.footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 5px; }
+.footer-links a { color: #00A86B; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+footer p { font-size: 10px; color: #666; margin: 0; }
 
-.footer-links a {
-  color: #00A86B;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
+/* --- 8. IMAGES --- */
+.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
 
-.footer-links a:hover {
-  color: #fff;
-}
-
-.developer-credit {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #00A86B !important;
-}
-
-/* Adjust content padding so it doesn't get hidden behind fixed footer */
-.content {
-  padding-bottom: 80px; 
+/* --- 9. RESPONSIVE FIXES --- */
+@media (max-width: 768px) {
+  h1 { font-size: 22px; }
+  h2 { font-size: 20px; }
+  .form-row, .vision-mission-container, .core-values { flex-direction: column; grid-template-columns: 1fr; }
+  .content { max-height: 80vh; }
 }
