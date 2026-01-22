@@ -5,46 +5,31 @@ body, html {
     background-color: #000; color: white; overflow: hidden;
 }
 
-/* --- 2. THE SLIDESHOW ANIMATION --- */
-/* If images don't appear, you will see Green, then Red, then Blue */
+/* --- BULLETPROOF SLIDESHOW --- */
 @keyframes homeSlideshow {
     0%, 30% { 
+        /* Try removing the ../ if the images don't show */
         background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg");
-        background-color: green; 
     }
     33%, 63% { 
         background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg");
-        background-color: red;
     }
     66%, 100% { 
         background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg");
-        background-color: blue;
     }
 }
 
-@keyframes backgroundShake {
-    0% { transform: scale(1.05); }
-    50% { transform: scale(1.1) translate(5px, 5px); }
-    100% { transform: scale(1.05); }
-}
-
-/* --- 3. LOGIC --- */
-section {
-    display: none; height: 100vh; width: 100vw; position: absolute;
-    top: 0; left: 0; align-items: center; justify-content: center;
-}
-
-#home:not(:target) { display: flex; }
-section:target { display: flex !important; }
-
-/* The Layer for Pictures */
-section::before {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background-size: cover; background-position: center;
+#home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    animation: backgroundShake 20s infinite;
+    background-color: #111; /* Fallback color */
+    animation: homeSlideshow 12s infinite, backgroundShake 20s infinite;
 }
-
 /* Specific Slideshow for Home */
 #home::before {
     animation: homeSlideshow 12s infinite !important;
