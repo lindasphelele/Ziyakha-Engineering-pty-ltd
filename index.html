@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Ziyakha Engineering PTY LTD</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 
@@ -37,7 +37,6 @@
   <section id="services" class="bg2">
     <div class="content">
       <h2>Our Services</h2>
-      
       <div class="service-container">
         <div class="service-box">
           <h3>Construction Safety</h3>
@@ -49,7 +48,6 @@
             <li>Safety Audits & Files</li>
           </ul>
         </div>
-
         <div class="service-box">
           <h3>Mining Safety</h3>
           <ul>
@@ -61,7 +59,6 @@
           </ul>
         </div>
       </div>
-      
       <a href="#contact" class="cta">Request a Quote</a>
     </div>
   </section>
@@ -89,13 +86,30 @@
 
   <section id="contact" class="contact">
     <div class="content">
-      <h2>Contact Us</h2>
-      <p>Phone: +27 65 936 4152</p>
-      <p>Email: ziyakhaengineering@gmail.com</p>
+      <h2>Request a Quote</h2>
+      
+      <form action="https://formspree.io/f/your-id-here" method="POST" class="quote-form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="text" name="surname" placeholder="Surname" required>
+        </div>
+        <div class="form-row">
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+
+      <div class="get-in-touch">
+        <h3>Get in Touch</h3>
+        <p>📍 Midrand, Gauteng, South Africa</p>
+        <p>📞 <a href="tel:+27659364152">+27 65 936 4152</a></p>
+        <p>✉️ <a href="mailto:ziyakhaengineering@gmail.com">ziyakhaengineering@gmail.com</a></p>
+      </div>
     </div>
   </section>
 
   <script src="script.js"></script>
-
 </body>
 </html>
