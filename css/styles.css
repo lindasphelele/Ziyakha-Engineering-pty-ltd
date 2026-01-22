@@ -1,4 +1,4 @@
-/* Reset & General Setup */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,85 +9,108 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   background-color: #111;
+  font-size: 16px;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
-/* --- PAGE SWITCHING LOGIC --- */
-
-/* Hide all sections by default */
+/* --- SINGLE PAGE LOGIC --- */
+/* Hide sections by default */
 section {
   display: none; 
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   background-size: cover;
   background-position: center;
   position: relative;
-  animation: fadeIn 0.5s ease; /* Adds a smooth transition */
 }
 
-/* Show the section that matches the URL link (e.g. #services) */
-section:target {
-  display: flex;
+/* Rules to show the targeted section */
+#home { display: flex; } /* Show Home on load */
+section:target { display: flex !important; } /* Show clicked section */
+section:target ~ #home { display: none; } /* Hide home if another is active */
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-/* Logic to show Home by default, but hide it if another section is selected */
-#home {
-  display: flex;
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
 }
 
-body:has(section:target:not(#home)) #home {
-  display: none;
+/* --- FONT FIXES --- */
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 42px; /* Fixed size to prevent it being "huge" */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+h1::first-letter {
+  background: #00A86B;
+  color: #000;
+  padding: 5px 15px;
+  margin-right: 10px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 32px;
+  color: #00A86B;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 /* --- NAVIGATION --- */
-
 nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 20px;
+  padding: 25px;
   z-index: 1000;
 }
 
 .menu-icon {
-  width: 35px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 40px;
   cursor: pointer;
 }
 
 .menu-icon span {
   display: block;
   height: 4px;
-  width: 100%;
   background-color: #00A86B;
+  margin-bottom: 6px;
   border-radius: 2px;
 }
 
 .nav-links {
   position: fixed;
   top: 0;
-  left: -300px; 
-  width: 280px;
+  left: -320px; 
+  width: 300px;
   height: 100vh;
-  background: #1a1a1a;
+  background: #111;
+  padding: 60px 40px;
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  gap: 20px;
-  transition: 0.4s ease;
+  gap: 25px;
+  transition: 0.3s ease;
   border-right: 3px solid #00A86B;
 }
 
@@ -97,55 +120,20 @@ nav {
 
 .close-menu {
   color: #00A86B;
-  margin-bottom: 20px;
-  cursor: pointer;
-  font-size: 0.8rem;
   font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .nav-links a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 20px;
   font-weight: 600;
 }
 
-/* --- RESPONSIVE TYPOGRAPHY (FIX FOR BIG FONT) --- */
-
-h1 {
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  /* This prevents the font from getting too big on large screens */
-  font-size: clamp(1.5rem, 8vw, 3rem); 
-  margin-bottom: 20px;
-}
-
-h1::first-letter {
-  display: inline-block;
-  background: #00A86B;
-  color: #000;
-  padding: 5px 15px;
-  margin-right: 10px;
-  clip-path: polygon(0% 0%, 60% 0%, 60% 15%, 100% 15%, 100% 85%, 0% 85%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
-}
-
-h2 {
+.nav-links a:hover {
   color: #00A86B;
-  font-size: clamp(1.2rem, 5vw, 2rem);
-  margin-bottom: 20px;
-}
-
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
 }
 
 /* Backgrounds */
@@ -164,3 +152,5 @@ section::before {
   border-radius: 4px;
   margin-top: 20px;
 }
+
+.contact { background-color: #0a0a0a; }
