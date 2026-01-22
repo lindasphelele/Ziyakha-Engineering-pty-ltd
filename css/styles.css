@@ -1,86 +1,80 @@
-/* --- 1. GLOBAL RESET --- */
+/* --- 1. RESET --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body, html {
     height: 100%; width: 100%; font-family: 'Montserrat', sans-serif;
-    background-color: #000; color: white;
-    overflow: hidden;
+    background-color: #000; color: white; overflow: hidden;
 }
 
-/* --- 2. THE ANIMATIONS (Sliding & Shaking) --- */
+/* --- 2. THE SLIDESHOW ANIMATION --- */
+/* If images don't appear, you will see Green, then Red, then Blue */
+@keyframes homeSlideshow {
+    0%, 30% { 
+        background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg");
+        background-color: green; 
+    }
+    33%, 63% { 
+        background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg");
+        background-color: red;
+    }
+    66%, 100% { 
+        background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg");
+        background-color: blue;
+    }
+}
+
 @keyframes backgroundShake {
     0% { transform: scale(1.05); }
     50% { transform: scale(1.1) translate(5px, 5px); }
     100% { transform: scale(1.05); }
 }
 
-/* Ensure these file paths exactly match your "Images" folder */
-@keyframes homeSlideshow {
-    0%, 30% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-    33%, 63% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-    66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-}
-
-/* --- 3. SECTION LOGIC --- */
+/* --- 3. LOGIC --- */
 section {
-    display: none; height: 100vh; width: 100vw; flex-direction: column;
-    align-items: center; justify-content: center; position: absolute;
-    top: 0; left: 0; overflow: hidden;
+    display: none; height: 100vh; width: 100vw; position: absolute;
+    top: 0; left: 0; align-items: center; justify-content: center;
 }
 
 #home:not(:target) { display: flex; }
 section:target { display: flex !important; }
-body:has(section:target:not(#home)) #home { display: none !important; }
 
-/* Background Base */
+/* The Layer for Pictures */
 section::before {
     content: ""; position: absolute; inset: 0; z-index: -1;
     background-size: cover; background-position: center;
     background-repeat: no-repeat;
-    animation: backgroundShake 20s ease-in-out infinite;
-    background-color: rgba(0, 0, 0, 0.2); 
+    animation: backgroundShake 20s infinite;
 }
 
-/* APPLY SLIDESHOW HERE */
+/* Specific Slideshow for Home */
 #home::before {
-    /* Combined both shake and slideshow */
-    animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite !important;
-    background-color: transparent;
+    animation: homeSlideshow 12s infinite !important;
 }
 
-/* --- 4. ACTION BAR (NAV) --- */
-nav { position: fixed; top: 25px; right: 25px; z-index: 99999; }
-
+/* --- 4. ACTION BAR (MENU) --- */
+nav { position: fixed; top: 25px; right: 25px; z-index: 100000; }
 .menu-icon { 
-    cursor: pointer; background: rgba(0,0,0,0.7); padding: 12px; 
-    border-radius: 50%; border: 2px solid #00A86B; pointer-events: auto !important;
+    cursor: pointer; background: rgba(0,0,0,0.8); padding: 12px; 
+    border-radius: 50%; border: 2px solid #00A86B; display: block;
 }
 .menu-icon span { display: block; height: 3px; width: 25px; background: #00A86B; margin-bottom: 4px; }
 
 .nav-links {
     position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-    background: #0a0a0a; padding: 40px; transition: 0.5s ease;
-    border-left: 3px solid #00A86B; z-index: 100000;
+    background: #0a0a0a; padding: 40px; transition: 0.5s; z-index: 100001;
+    border-left: 3px solid #00A86B; display: flex; flex-direction: column;
 }
 .nav-links.active { right: 0; }
-.nav-links a { color: white; text-decoration: none; display: block; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; }
-.close-menu { cursor: pointer; color: #00A86B; margin-bottom: 30px; text-align: right; font-size: 20px; }
+.nav-links a { color: white; text-decoration: none; margin-bottom: 20px; font-weight: bold; text-transform: uppercase; }
 
-/* --- 5. CONTENT & BOXES --- */
+/* --- 5. CONTENT & FOOTER --- */
 .content { position: relative; z-index: 10; width: 90%; max-width: 800px; text-align: center; }
-h2 { color: #00A86B; margin-bottom: 20px; font-size: 2rem; }
-.about-box, .service-box, .vm-box {
-    background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(0, 168, 107, 0.3);
-    backdrop-filter: blur(8px); padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 15px;
-}
+.about-box, .vm-box { background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px; border: 1px solid #00A86B; margin-bottom: 10px; }
+footer { position: fixed; bottom: 0; width: 100%; padding: 15px; background: rgba(0,0,0,0.9); text-align: center; z-index: 999; border-top: 1px solid #00A86B; }
 
-/* --- 6. FOOTER --- */
-footer { 
-    position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.85); 
-    padding: 15px; text-align: center; border-top: 1px solid #00A86B; z-index: 9998; 
-}
+/* Hide footer on Home */
 #home:not(:target) ~ footer, section:target#home ~ footer { display: none !important; }
 
-/* --- 7. STATIC BACKGROUNDS FOR OTHER PAGES --- */
+/* STATIC BACKGROUNDS */
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 #services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 #partnerships::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
