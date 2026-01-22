@@ -5,45 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Ziyakha Engineering PTY LTD</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=102">
+    <link rel="stylesheet" href="css/styles.css?v=105">
 </head>
 <body>
 
     <nav>
-        <div class="menu-icon" onclick="toggleMenu()">
+        <div class="menu-icon" id="menuBtn">
             <span></span><span></span><span></span>
         </div>
         <div class="nav-links" id="navLinks">
-            <div class="close-menu" onclick="toggleMenu()">&times; Close Menu</div>
+            <div class="close-menu" id="closeBtn">&times; Close Menu</div>
             <img src="Images/logo.png" alt="Ziyakha Logo" style="width: 130px; margin-bottom: 25px; align-self: center;">
-            <a href="#home" onclick="toggleMenu()">Home</a>
-            <a href="#about" onclick="toggleMenu()">About Us</a>
-            <a href="#services" onclick="toggleMenu()">Services</a>
-            <a href="#partnerships" onclick="toggleMenu()">Partnerships</a>
-            <a href="#affiliations" onclick="toggleMenu()">Affiliations</a>
-            <a href="#contact" onclick="toggleMenu()">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#partnerships">Partnerships</a>
+            <a href="#affiliations">Affiliations</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section id="home">
-        <div class="content" style="display: none;"></div>
-    </section>
+        </section>
 
     <section id="about">
         <div class="content">
             <h2>About Us</h2>
             <div class="about-box">
                 <h3>Our Journey</h3>
-                <p>Ziyakha Engineering is a leader in safety solutions, transforming workplace cultures across Africa through compliance and education.</p>
+                <p>Ziyakha Engineering is a premier safety solutions provider, dedicated to transforming workplace cultures across Africa through compliance, education, and innovative strategy.</p>
             </div>
             <div class="vision-mission-container">
                 <div class="vm-box">
                     <h3>Vision</h3>
-                    <p>Spearheading Safety and Innovation across Africa.</p>
+                    <p>“To spearhead the initiative of Safety and innovation across Africa while ensuring a safe working environment for all.”</p>
                 </div>
                 <div class="vm-box">
                     <h3>Mission</h3>
-                    <p>Delivering high-quality safety training and environmental stewardship.</p>
+                    <p>"Delivering high-quality safety training that meets evolving industrial needs."</p>
                 </div>
             </div>
         </div>
@@ -58,15 +57,15 @@
                     <ul>
                         <li>OHSA Compliance</li>
                         <li>First Aid Training</li>
-                        <li>Fire Fighting</li>
+                        <li>Safety Files</li>
                     </ul>
                 </div>
                 <div class="service-box">
                     <h3>Mining Safety</h3>
                     <ul>
                         <li>MHSA Compliance</li>
-                        <li>Incident Investigation</li>
                         <li>Legal Liability</li>
+                        <li>Incident Investigation</li>
                     </ul>
                 </div>
             </div>
@@ -77,7 +76,7 @@
         <div class="content">
             <h2>Partnerships</h2>
             <div class="about-box">
-                <p>We collaborate with industry leaders to provide integrated project management and technical skills transfer.</p>
+                <p>We collaborate with industry-leading organizations to deliver comprehensive engineering and safety solutions across the continent.</p>
             </div>
         </div>
     </section>
@@ -87,7 +86,7 @@
             <h2>Affiliations</h2>
             <div class="vm-box">
                 <h3>Accreditations</h3>
-                <p>Affiliated with major regulatory bodies ensuring national safety standards.</p>
+                <p>We are affiliated with major regulatory bodies ensuring all our training meets national standards and industrial requirements.</p>
             </div>
         </div>
     </section>
@@ -96,17 +95,43 @@
         <div class="content">
             <h2>Contact Details</h2>
             <div class="contact-details-grid">
-                <div class="contact-item">📍 Midrand, Gauteng</div>
+                <div class="contact-item">📍 136 2nd ST, RANDJESPARK, MIDRAND</div>
                 <div class="contact-item">📞 +27 65 936 4152</div>
-                <div class="contact-item">✉️ info@ziyakha.co.za</div>
+                <div class="contact-item">✉️ info@ziyakhaengineering@gmail.com</div>
             </div>
-            <form class="quote-form">
-                <input type="text" placeholder="Name">
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit" class="cta">Send</button>
+
+            <form action="#" class="quote-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                </div>
+                <textarea placeholder="How can we help?" required></textarea>
+                <button type="submit" class="cta">Send Message</button>
             </form>
         </div>
     </section>
-    <script src="js/script.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const navLinks = document.getElementById('navLinks');
+        const links = document.querySelectorAll('.nav-links a');
+
+        // Open Menu
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.add('active');
+        });
+
+        // Close Menu
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
