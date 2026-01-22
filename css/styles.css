@@ -61,22 +61,19 @@ body {
 
 /* --- SIDEBAR MENU --- */
 .nav-menu {
-  position: fixed;
-  top: 0;
-  right: -280px; /* Hidden by default */
-  width: 260px;
-  height: 100%;
-  background: #0a0a0a;
-  border-left: 2px solid #00A86B;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-  transition: 0.4s ease;
-  z-index: 2001;
+    position: fixed;
+    top: 0;
+    right: -300px; /* This hides it off-screen to the right */
+    width: 280px;
+    height: 100%;
+    background: #0a0a0a;
+    transition: 0.4s ease;
+    z-index: 9999; /* High number so it stays on top */
 }
 
+/* This class is added by JavaScript when you click the button */
 .nav-menu.active {
-  right: 0;
+    right: 0; 
 }
 
 .nav-menu a {
