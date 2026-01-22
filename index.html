@@ -110,28 +110,17 @@
             </form>
         </div>
     </section>
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const navLinks = document.getElementById('navLinks');
-        const links = document.querySelectorAll('.nav-links a');
+   <script>
+    const menuBtn = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
 
-        // Open Menu
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.add('active');
-        });
+    menuBtn.onclick = () => {
+        navLinks.classList.toggle('active');
+    };
 
-        // Close Menu
-        closeBtn.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-
-        // Close menu when a link is clicked
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.onclick = () => navLinks.classList.remove('active');
+    });
+</script>
 </body>
 </html>
