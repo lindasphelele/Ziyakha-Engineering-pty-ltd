@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -10,71 +10,7 @@ body {
   color: #ffffff;
   background-color: #111;
   font-size: 16px;
-  line-height: 1.5;
   overflow-x: hidden;
-}
-
-/* --- SINGLE PAGE LOGIC --- */
-/* Hide sections by default */
-section {
-  display: none; 
-  min-height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 20px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* Rules to show the targeted section */
-#home { display: flex; } /* Show Home on load */
-section:target { display: flex !important; } /* Show clicked section */
-section:target ~ #home { display: none; } /* Hide home if another is active */
-
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  width: 100%;
-}
-
-/* --- FONT FIXES --- */
-h1 {
-  font-family: Arial, sans-serif;
-  font-size: 42px; /* Fixed size to prevent it being "huge" */
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-
-h1::first-letter {
-  background: #00A86B;
-  color: #000;
-  padding: 5px 15px;
-  margin-right: 10px;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 32px;
-  color: #00A86B;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-p {
-  font-size: 18px;
-  margin-bottom: 15px;
 }
 
 /* --- NAVIGATION --- */
@@ -87,14 +23,14 @@ nav {
 }
 
 .menu-icon {
-  width: 40px;
+  width: 35px;
   cursor: pointer;
 }
 
 .menu-icon span {
   display: block;
   height: 4px;
-  background-color: #00A86B;
+  background-color: #00A86B; /* Jade Green */
   margin-bottom: 6px;
   border-radius: 2px;
 }
@@ -106,10 +42,10 @@ nav {
   width: 300px;
   height: 100vh;
   background: #111;
-  padding: 60px 40px;
+  padding: 50px 30px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   transition: 0.3s ease;
   border-right: 3px solid #00A86B;
 }
@@ -123,6 +59,7 @@ nav {
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .nav-links a {
@@ -132,25 +69,83 @@ nav {
   font-weight: 600;
 }
 
-.nav-links a:hover {
-  color: #00A86B;
+/* --- PAGE SWITCHING --- */
+section {
+  display: none; /* Hide all initially */
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-/* Backgrounds */
-.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
+/* Default view: Show Home. If a link is clicked, show that section instead. */
+#home { display: flex; }
+section:target { display: flex !important; }
+section:target ~ #home { display: none; }
 
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* Background overlay */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+/* --- TYPOGRAPHY (The Fix for Giant Text) --- */
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 40px; /* Fixed size: No more massive text */
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+h1::first-letter {
+  background: #00A86B;
+  color: #000;
+  padding: 5px 12px;
+  margin-right: 8px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 30px;
+  color: #00A86B;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
 .cta {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 15px 35px;
   background: #00A86B;
   color: #000;
   text-decoration: none;
   font-weight: 700;
   border-radius: 4px;
-  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.contact { background-color: #0a0a0a; }
+/* Background Images */
+.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
+
+.contact { background-color: #111; }
