@@ -1,8 +1,20 @@
-const slides = document.querySelectorAll('.slide');
-let i = 0;
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const navMenu = document.getElementById('navMenu');
 
-setInterval(() => {
-  slides[i].classList.remove('active');
-  i = (i + 1) % slides.length;
-  slides[i].classList.add('active');
-}, 4000);
+// Open Menu
+menuBtn.addEventListener('click', () => {
+    navMenu.classList.add('active');
+});
+
+// Close Menu
+closeBtn.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+});
+
+// Close menu when any link is clicked
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
