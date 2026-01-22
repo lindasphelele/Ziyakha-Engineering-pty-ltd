@@ -1,89 +1,68 @@
-/* MODERN PILL-STYLE MENU ICON */
-nav { 
-    position: fixed; top: 30px; right: 30px; z-index: 100000; 
-}
-
-.menu-icon { 
-    cursor: pointer; 
-    background: rgba(0, 0, 0, 0.7); 
-    padding: 10px 20px; 
-    border-radius: 30px; 
-    border: 1px solid #00A86B; 
-    display: flex; align-items: center; gap: 10px;
-    transition: 0.3s;
-}
-
-.menu-icon:hover { background: #00A86B; }
-.menu-icon:hover .menu-label, .menu-icon:hover span { color: black; background: black; }
-
-.bar-container { display: flex; flex-direction: column; gap: 4px; }
-.bar-container span { display: block; height: 2px; width: 20px; background: #00A86B; transition: 0.3s; }
-
-.menu-label { 
-    color: #00A86B; font-size: 11px; font-weight: bold; 
-    letter-spacing: 1.5px; text-transform: uppercase; 
-}
-/* --- 1. RESET --- */
+/* --- GLOBAL STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body, html {
-    height: 100%; width: 100%; font-family: 'Montserrat', sans-serif;
-    background-color: #000; color: white; overflow: hidden;
-}
-/* --- THE FIXED SLIDESHOW --- */
-@keyframes slideshow {
-    0%, 30% { 
-        background-image: url("Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); 
-    }
-    33%, 63% { 
-        background-image: url("Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); 
-    }
-    66%, 100% { 
-        /* Note the double 's' in Imagess to match your GitHub file */
-        background-image: url("Images/WhatsApp Imagess 2026-01-20 at 15.48.17.jpeg"); 
-    }
+body, html { 
+    height: 100%; width: 100%; 
+    font-family: 'Montserrat', sans-serif; 
+    background: #000; color: #fff; overflow-x: hidden; 
 }
 
+/* --- 3x PICTURES SLIDES --- */
 #bg-layer {
-    position: fixed; 
-    inset: 0; 
-    z-index: -1;
-    background-size: cover; 
-    background-position: center;
-    background-color: #111; /* Fallback if images take a second to load */
-    animation: slideshow 12s infinite ease-in-out, shake 20s infinite;
-}
-/* Specific Slideshow for Home */
-#home::before {
-    animation: homeSlideshow 12s infinite !important;
+    position: fixed; inset: 0; z-index: -1;
+    background-size: cover; background-position: center;
+    background-repeat: no-repeat;
+    animation: slideshow 15s infinite ease-in-out, shake 20s infinite;
 }
 
-/* --- 4. ACTION BAR (MENU) --- */
-nav { position: fixed; top: 25px; right: 25px; z-index: 100000; }
-.menu-icon { 
-    cursor: pointer; background: rgba(0,0,0,0.8); padding: 12px; 
-    border-radius: 50%; border: 2px solid #00A86B; display: block;
+@keyframes slideshow {
+    0%, 30% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+    33%, 63% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+    66%, 100% { background-image: url("../Images/WhatsApp Imagess 2026-01-20 at 15.48.17.jpeg"); }
 }
-.menu-icon span { display: block; height: 3px; width: 25px; background: #00A86B; margin-bottom: 4px; }
 
-.nav-links {
-    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-    background: #0a0a0a; padding: 40px; transition: 0.5s; z-index: 100001;
-    border-left: 3px solid #00A86B; display: flex; flex-direction: column;
+@keyframes shake {
+    0% { transform: scale(1.02); }
+    50% { transform: scale(1.08) translate(5px, 5px); }
+    100% { transform: scale(1.02); }
 }
-.nav-links.active { right: 0; }
-.nav-links a { color: white; text-decoration: none; margin-bottom: 20px; font-weight: bold; text-transform: uppercase; }
 
-/* --- 5. CONTENT & FOOTER --- */
-.content { position: relative; z-index: 10; width: 90%; max-width: 800px; text-align: center; }
-.about-box, .vm-box { background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px; border: 1px solid #00A86B; margin-bottom: 10px; }
-footer { position: fixed; bottom: 0; width: 100%; padding: 15px; background: rgba(0,0,0,0.9); text-align: center; z-index: 999; border-top: 1px solid #00A86B; }
+/* --- NAVIGATION --- */
+nav { position: fixed; top: 25px; right: 25px; z-index: 2000; }
+.menu-btn {
+    background: #00A86B; color: #000; padding: 12px 25px;
+    border-radius: 30px; cursor: pointer; font-weight: bold; border: none;
+}
+.nav-menu {
+    position: fixed; top: 0; right: -320px; width: 300px; height: 100%;
+    background: #0a0a0a; border-left: 3px solid #00A86B;
+    display: flex; flex-direction: column; padding: 40px 20px;
+    transition: 0.5s ease; z-index: 2001;
+}
+.nav-menu.active { right: 0; }
+.nav-menu a { color: white; text-decoration: none; margin-bottom: 20px; font-weight: bold; text-transform: uppercase; }
+.close-btn { cursor: pointer; color: #00A86B; margin-bottom: 30px; font-weight: bold; text-align: right; }
 
-/* Hide footer on Home */
-#home:not(:target) ~ footer, section:target#home ~ footer { display: none !important; }
+/* --- CONTENT BOX STYLES --- */
+section { display: none; min-height: 100vh; width: 100vw; padding: 100px 20px; flex-direction: column; align-items: center; }
+section:target { display: flex; }
+#home:not(:target) { display: flex; align-items: center; justify-content: center; }
 
-/* STATIC BACKGROUNDS */
-#about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-#services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-#partnerships::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
-#affiliations::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-#contact::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+.hero-text { text-align: center; text-shadow: 2px 2px 10px #000; font-size: 2.5rem; }
+.hero-text span { color: #00A86B; }
+
+.content-box {
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+    padding: 40px; border-radius: 15px; border: 1px solid #00A86B;
+    max-width: 900px; width: 100%;
+}
+
+h2 { color: #00A86B; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid #00A86B; display: inline-block; }
+h3 { color: #00A86B; margin: 30px 0 10px 0; border-left: 4px solid #00A86B; padding-left: 10px; }
+p { margin-bottom: 15px; line-height: 1.6; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px; }
+.grid ul { list-style: none; }
+.grid li { margin-bottom: 8px; padding-left: 20px; position: relative; font-size: 0.9rem; }
+.grid li::before { content: "✔"; color: #00A86B; position: absolute; left: 0; }
+
+.contact-card { background: rgba
