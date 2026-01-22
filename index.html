@@ -14,16 +14,22 @@
 <body>
 
   <!-- Navigation -->
-  <nav>
-    <div class="nav-right">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#vision">Vision</a>
-      <a href="#advantage">Advantage</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+ <nav>
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#vision" onclick="toggleMenu()">Vision</a>
+    <a href="#advantage" onclick="toggleMenu()">Advantage</a>
+    <a href="#leadership" onclick="toggleMenu()">Leadership</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+</nav>
 
   <!-- Hero -->
   <section id="home" class="bg1">
