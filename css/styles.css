@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* 1. Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,30 +7,99 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
   background-color: #111;
-  font-size: 16px;
-  overflow-x: hidden;
+  color: white;
+  /* Fixed base size */
+  font-size: 16px; 
+  overflow: hidden; 
 }
 
-/* --- NAVIGATION --- */
+/* 2. Page Switching Logic */
+.page-section {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Show logic */
+#home:not(:target) { display: flex; }
+section:target { display: flex !important; }
+body:has(section:target:not(#home)) #home { display: none !important; }
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 3. THE FONT FIX (Strict Sizes) */
+h1 {
+  font-family: Arial, sans-serif;
+  /* Forced small size for mobile/standard */
+  font-size: 28px !important; 
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+h1::first-letter {
+  background: #00A86B;
+  color: black;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+h2 {
+  font-size: 24px !important;
+  color: #00A86B;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+/* 4. Desktop Specific Sizes (Prevents "Huge" Look on laptops) */
+@media (min-width: 1024px) {
+  h1 { font-size: 40px !important; }
+  h2 { font-size: 30px !important; }
+  p { font-size: 18px !important; }
+}
+
+/* 5. Navigation */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  padding: 25px;
+  top: 20px;
+  left: 20px;
   z-index: 1000;
 }
 
 .menu-icon {
-  width: 35px;
+  width: 40px;
   cursor: pointer;
 }
 
 .menu-icon span {
   display: block;
   height: 4px;
-  background-color: #00A86B; /* Jade Green */
+  background: #00A86B;
   margin-bottom: 6px;
   border-radius: 2px;
 }
@@ -38,114 +107,42 @@ nav {
 .nav-links {
   position: fixed;
   top: 0;
-  left: -320px; 
+  left: -100%; 
   width: 300px;
   height: 100vh;
-  background: #111;
-  padding: 50px 30px;
+  background: #151515;
+  padding: 60px 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: 0.3s ease;
+  transition: 0.3s ease-in-out;
   border-right: 3px solid #00A86B;
 }
 
-.nav-links.active {
-  left: 0;
-}
-
-.close-menu {
-  color: #00A86B;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 20px;
-  font-size: 14px;
-}
+.nav-links.active { left: 0; }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* --- PAGE SWITCHING --- */
-section {
-  display: none; /* Hide all initially */
-  min-height: 100vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* Default view: Show Home. If a link is clicked, show that section instead. */
-#home { display: flex; }
-section:target { display: flex !important; }
-section:target ~ #home { display: none; }
-
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7); /* Background overlay */
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-}
-
-/* --- TYPOGRAPHY (The Fix for Giant Text) --- */
-h1 {
-  font-family: Arial, sans-serif;
-  font-size: 40px; /* Fixed size: No more massive text */
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  line-height: 1.2;
-}
-
-h1::first-letter {
-  background: #00A86B;
-  color: #000;
-  padding: 5px 12px;
-  margin-right: 8px;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 30px;
-  color: #00A86B;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-/* Buttons */
+/* Button */
 .cta {
   display: inline-block;
-  padding: 15px 35px;
+  padding: 12px 30px;
   background: #00A86B;
-  color: #000;
+  color: black;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
   border-radius: 4px;
-  text-transform: uppercase;
   font-size: 14px;
 }
 
-/* Background Images */
-.bg1 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
-.bg2 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
-.bg3 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
-.bg4 { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
-
-.contact { background-color: #111; }
+/* Backgrounds */
+#home { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
+#services { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+#vision { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
+#advantage { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
+#leadership { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
