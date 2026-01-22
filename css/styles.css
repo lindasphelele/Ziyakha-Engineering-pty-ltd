@@ -6,20 +6,21 @@ body, html {
     overflow: hidden;
 }
 
-/* --- 2. THE ANIMATIONS --- */
+/* --- 2. THE ANIMATIONS (Sliding & Shaking) --- */
 @keyframes backgroundShake {
     0% { transform: scale(1.05); }
     50% { transform: scale(1.1) translate(5px, 5px); }
     100% { transform: scale(1.05); }
 }
 
+/* Ensure these file paths exactly match your "Images" folder */
 @keyframes homeSlideshow {
     0%, 30% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
     33%, 63% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
     66%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 }
 
-/* --- 3. SECTION LOGIC & BRIGHT BACKGROUNDS --- */
+/* --- 3. SECTION LOGIC --- */
 section {
     display: none; height: 100vh; width: 100vw; flex-direction: column;
     align-items: center; justify-content: center; position: absolute;
@@ -30,75 +31,56 @@ section {
 section:target { display: flex !important; }
 body:has(section:target:not(#home)) #home { display: none !important; }
 
+/* Background Base */
 section::before {
     content: ""; position: absolute; inset: 0; z-index: -1;
     background-size: cover; background-position: center;
     background-repeat: no-repeat;
     animation: backgroundShake 20s ease-in-out infinite;
-    background-color: rgba(0, 0, 0, 0.1); /* Brighter pictures */
+    background-color: rgba(0, 0, 0, 0.2); 
 }
 
+/* APPLY SLIDESHOW HERE */
 #home::before {
-    animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite;
-    background-color: transparent; /* Crystal clear on home page */
+    /* Combined both shake and slideshow */
+    animation: backgroundShake 20s ease-in-out infinite, homeSlideshow 15s infinite !important;
+    background-color: transparent;
 }
 
-/* --- 4. ACTION BAR (NAV) STYLING --- */
-nav { 
-    position: fixed; top: 25px; right: 25px; z-index: 99999; 
-}
+/* --- 4. ACTION BAR (NAV) --- */
+nav { position: fixed; top: 25px; right: 25px; z-index: 99999; }
 
 .menu-icon { 
     cursor: pointer; background: rgba(0,0,0,0.7); padding: 12px; 
     border-radius: 50%; border: 2px solid #00A86B; pointer-events: auto !important;
 }
-
 .menu-icon span { display: block; height: 3px; width: 25px; background: #00A86B; margin-bottom: 4px; }
 
 .nav-links {
     position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
     background: #0a0a0a; padding: 40px; transition: 0.5s ease;
     border-left: 3px solid #00A86B; z-index: 100000;
-    display: flex; flex-direction: column;
 }
-
 .nav-links.active { right: 0; }
+.nav-links a { color: white; text-decoration: none; display: block; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; }
+.close-menu { cursor: pointer; color: #00A86B; margin-bottom: 30px; text-align: right; font-size: 20px; }
 
-.nav-links a { 
-    color: white; text-decoration: none; font-size: 18px; 
-    margin-bottom: 20px; font-weight: 600; text-transform: uppercase; 
-}
-
-.close-menu { cursor: pointer; color: #00A86B; font-weight: bold; margin-bottom: 30px; text-align: right; }
-
-/* --- 5. CONTENT BLOCKS --- */
+/* --- 5. CONTENT & BOXES --- */
 .content { position: relative; z-index: 10; width: 90%; max-width: 800px; text-align: center; }
-
-h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; }
-
+h2 { color: #00A86B; margin-bottom: 20px; font-size: 2rem; }
 .about-box, .service-box, .vm-box {
     background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(0, 168, 107, 0.3);
     backdrop-filter: blur(8px); padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 15px;
 }
 
-.contact-details-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
-.contact-item { background: rgba(0, 168, 107, 0.1); border: 1px solid rgba(0, 168, 107, 0.2); padding: 12px; border-radius: 8px; font-size: 14px; }
-
-.cta { padding: 12px 30px; background: #00A86B; color: black; font-weight: bold; border-radius: 5px; text-decoration: none; border: none; cursor: pointer; }
-
-/* --- 6. FOOTER (Hidden on Home) --- */
+/* --- 6. FOOTER --- */
 footer { 
     position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.85); 
     padding: 15px; text-align: center; border-top: 1px solid #00A86B; z-index: 9998; 
 }
+#home:not(:target) ~ footer, section:target#home ~ footer { display: none !important; }
 
-#home:not(:target) ~ footer, 
-body:not(:has(section:target)) footer,
-section:target#home ~ footer { 
-    display: none !important; 
-}
-
-/* --- 7. BACKGROUND ASSIGNMENTS --- */
+/* --- 7. STATIC BACKGROUNDS FOR OTHER PAGES --- */
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 #services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 #partnerships::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
