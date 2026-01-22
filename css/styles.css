@@ -34,7 +34,20 @@ section::before {
     background-blend-mode: darken;
 }
 
-.content { position: relative; z-index: 10; width: 90%; max-width: 900px; text-align: center; }
+/* Added padding-bottom to content so it doesn't hit the footer */
+.content { 
+    position: relative; 
+    z-index: 10; 
+    width: 90%; 
+    max-width: 900px; 
+    text-align: center; 
+    padding-bottom: 80px; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+}
+
+/* Hide scrollbar for clean look but allow scrolling */
+.content::-webkit-scrollbar { display: none; }
 
 /* --- 4. LOGO STYLING --- */
 .logo-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
@@ -45,7 +58,7 @@ section::before {
 
 /* --- 5. BOXES & GRID --- */
 h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; }
-.about-box, .service-box, .leadership-card, .vm-box {
+.about-box, .service-box, .leadership-card, .vm-box, .advantage-box {
     background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px); padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 15px;
 }
@@ -55,25 +68,42 @@ h2 { color: #00A86B; text-transform: uppercase; margin-bottom: 20px; }
 .vm-box { flex: 1; border-left: 4px solid #00A86B; }
 
 /* --- 6. NAV, BUTTONS, FOOTER --- */
-nav { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+nav { position: fixed; top: 20px; left: 20px; z-index: 10000; }
 .menu-icon span { display: block; height: 4px; width: 35px; background: #00A86B; margin-bottom: 6px; }
 .nav-links {
     position: fixed; top: 0; left: -100%; width: 280px; height: 100vh;
     background: #111; padding: 40px 30px; display: flex; flex-direction: column;
-    transition: 0.4s; border-right: 3px solid #00A86B;
+    transition: 0.4s; border-right: 3px solid #00A86B; z-index: 10001;
 }
 .nav-links.active { left: 0; }
 .nav-links a { color: white; text-decoration: none; font-size: 18px; margin-bottom: 15px; font-weight: 600; }
-.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; }
+
+.cta { display: inline-block; padding: 12px 30px; background: #00A86B; color: black; font-weight: bold; border-radius: 4px; text-decoration: none; text-transform: uppercase; cursor: pointer; border: none; }
+
 .quote-form { display: flex; flex-direction: column; gap: 10px; }
 .form-row { display: flex; gap: 10px; }
 .quote-form input, .quote-form textarea { flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px; }
-footer { position: fixed; bottom: 0; width: 100%; background: rgba(0,0,0,0.9); padding: 10px; text-align: center; border-top: 1px solid #00A86B; }
+
+/* PERSISTENT FOOTER FIX */
+footer { 
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    background: rgba(0,0,0,0.95); 
+    padding: 15px 10px; 
+    text-align: center; 
+    border-top: 1px solid #00A86B; 
+    z-index: 9999; /* Higher than background layers */
+}
+.footer-links { margin-bottom: 5px; }
+.footer-links a { color: #00A86B; text-decoration: none; font-size: 12px; margin: 0 10px; font-weight: bold; }
 
 /* --- 7. ASSIGN BACKGROUNDS --- */
 #home::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
 #about::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15 (1).jpeg"); }
 #services::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
+#advantage::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.15.jpeg"); }
 #leadership::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg"); }
 #contact::before { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg"); }
 
@@ -81,4 +111,5 @@ footer { position: fixed; bottom: 0; width: 100%; background: rgba(0,0,0,0.9); p
 @media (max-width: 600px) {
     .main-logo { max-width: 280px; }
     .contact-details-grid, .form-row, .vision-mission-container { flex-direction: column; grid-template-columns: 1fr; }
+    .content { padding-bottom: 120px; } /* More space for footer on mobile */
 }
