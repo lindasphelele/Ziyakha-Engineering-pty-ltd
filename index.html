@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Ziyakha Engineering PTY LTD</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
 
   <nav>
     <div class="menu-icon" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
 
     <div class="nav-links" id="navLinks">
       <div class="close-menu" onclick="toggleMenu()">&times; Close Menu</div>
       <a href="#home" onclick="toggleMenu()">Home</a>
+      <a href="#about" onclick="toggleMenu()">About Us</a>
       <a href="#services" onclick="toggleMenu()">Services</a>
-      <a href="#vision" onclick="toggleMenu()">Vision</a>
       <a href="#advantage" onclick="toggleMenu()">Advantage</a>
       <a href="#leadership" onclick="toggleMenu()">Leadership</a>
       <a href="#contact" onclick="toggleMenu()">Contact</a>
@@ -30,7 +28,40 @@
   <section id="home" class="bg1">
     <div class="content">
       <h1><span class="logo-z">Z</span>IYAKHA ENGINEERING PTY LTD</h1>
-      <a href="#services" class="cta">Explore Services</a>
+      <p style="margin-bottom: 30px; font-weight: 600;">Pioneering Safety Solutions Across Africa</p>
+      <a href="#about" class="cta">Learn About Us</a>
+    </div>
+  </section>
+
+  <section id="about" class="bg3">
+    <div class="content">
+      <h2>About Us</h2>
+      
+      <div class="about-box">
+        <h3>Our Journey</h3>
+        <p>Founded with a passion for excellence, Ziyakha Engineering has emerged as a leader in safety solutions. We have dedicated ourselves to transforming workplace cultures across Africa through education, compliance, and cutting-edge strategy.</p>
+      </div>
+
+      <div class="vision-mission-container">
+        <div class="vm-box">
+          <div class="vm-header"><h3>Vision</h3></div>
+          <p>“Our aspiration is to be among the principal stakeholders who spearhead the initiative of <strong>Safety and innovation across Africa</strong> while ensuring a safe working environment for our teams, clients and communities.”</p>
+        </div>
+
+        <div class="vm-box">
+          <div class="vm-header"><h3>Mission Statement</h3></div>
+          <p>"We are committed to delivering <strong>high-quality safety training</strong> that meets the evolving needs of our clients while prioritizing environmental stewardship and social responsibility. We aim to enhance safety across the continent, driving economic progress."</p>
+        </div>
+      </div>
+
+      <div class="core-values">
+        <div class="value-tag"><span>✔</span> Integrity</div>
+        <div class="value-tag"><span>✔</span> Innovation</div>
+        <div class="value-tag) "><span>✔</span> Safety First</div>
+        <div class="value-tag"><span>✔</span> Customer Focus</div>
+      </div>
+
+      <a href="#services" class="cta">View Our Services</a>
     </div>
   </section>
 
@@ -63,107 +94,44 @@
     </div>
   </section>
 
-  <section id="vision" class="bg3">
-    <div class="content">
-      <h2>Vision & Mission</h2>
-      <div class="vision-mission-container">
-        
-        <div class="vm-box">
-          <div class="vm-header">
-            <span class="vm-icon">👁</span>
-            <h3>Vision</h3>
-          </div>
-          <p>
-            “Our aspiration is to be among the principal stakeholders who spearhead the initiative of 
-            <strong>Safety and innovation across Africa</strong> while ensuring a safe working environment 
-            for our teams, clients and communities.”
-          </p>
-        </div>
-
-        <div class="vm-box">
-          <div class="vm-header">
-            <span class="vm-icon">🚀</span>
-            <h3>Mission Statement</h3>
-          </div>
-          <p>
-            "We are committed to delivering <strong>high-quality safety training</strong> that meets the 
-            evolving needs of our clients and communities while prioritizing environmental stewardship and 
-            social responsibility. By leveraging local resources, fostering partnerships, and investing 
-            in our workforce, we aim to enhance safety across the continent, driving economic progress 
-            and improving the quality of life for all Africans."
-          </p>
-        </div>
-
-      </div>
-      <a href="#advantage" class="cta">Our Strategic Advantage</a>
-    </div>
-  </section>
-
   <section id="advantage" class="bg4">
     <div class="content">
       <h2>Strategic Advantage</h2>
       <div class="advantage-container">
         <div class="advantage-box">
           <ul>
-            <li>
-              <strong>Skilled Training Workforce:</strong> 
-              Facilitators, Moderators, and Assessors trained in both construction and mining safety standards.
-            </li>
-            <li>
-              <strong>Cost Efficiency:</strong> 
-              Streamlining production processes to reduce costs for competitive pricing and implementing lean manufacturing principles to achieve customer goals.
-            </li>
-            <li>
-              <strong>Customer Focus:</strong> 
-              Our dedicated team of professionals prioritize customer needs and provide tailored solutions.
-            </li>
-            <li>
-              <strong>Innovation:</strong> 
-              Continuous investment in research and development to introduce cutting-edge products and technologies.
-            </li>
-            <li>
-              <strong>Flexibility:</strong> 
-              A range of learning options including E-Learning, Webinars, and In-Classroom Learning, tailored to suit our clients' studying styles and needs.
-            </li>
+            <li><strong>Skilled Training Workforce:</strong> Facilitators, Moderators, and Assessors trained in both construction and mining safety standards.</li>
+            <li><strong>Cost Efficiency:</strong> Streamlining processes to reduce costs for competitive pricing and implementing lean manufacturing principles.</li>
+            <li><strong>Customer Focus:</strong> Our dedicated team of professionals prioritize customer needs and provide tailored solutions.</li>
+            <li><strong>Innovation:</strong> Continuous investment in R&D to introduce cutting-edge products and technologies.</li>
+            <li><strong>Flexibility:</strong> Range of learning options including E-Learning, Webinars, and In-Classroom Learning.</li>
           </ul>
         </div>
       </div>
-      <a href="#contact" class="cta">Request a Quote</a>
+      <a href="#contact" class="cta">Get Started</a>
     </div>
   </section>
 
   <section id="leadership" class="bg1">
     <div class="content">
       <h2>Leadership</h2>
-      <div class="leadership-container">
-        <div class="leadership-card">
-          <div class="ceo-header">
-            <h3>Lehlohonolo Magoete</h3>
-            <span class="title">Founder & CEO</span>
-          </div>
-          <div class="ceo-bio">
-            <p>
-              With a background in <strong>Human Resource Development</strong>, Lehlohonolo Magoete is an inspiring young 
-              black female entrepreneur who founded Ziyakha Engineering Pty Ltd, a pioneering safety solutions 
-              provider dedicated to enhancing workplace and community safety.
-            </p>
-            <p>
-              She envisions an Africa in which every workplace and community is equipped with 
-              the tools and knowledge necessary to ensure safety for all. Her mission is to provide innovative 
-              safety solutions that empower individuals and organizations to prioritize safety and prevent 
-              accidents through education, technology, and proactive strategies.
-            </p>
-          </div>
+      <div class="leadership-card">
+        <div class="ceo-header">
+          <h3>Lehlohonolo Magoete</h3>
+          <span class="title">Founder & CEO</span>
+        </div>
+        <div class="ceo-bio">
+          <p>With a background in <strong>Human Resource Development</strong>, Lehlohonolo Magoete is an inspiring entrepreneur who founded Ziyakha Engineering to enhance workplace and community safety.</p>
+          <p>She envisions an Africa where every workplace is equipped with the tools necessary to ensure safety for all through education, technology, and proactive strategies.</p>
         </div>
       </div>
-      <a href="#contact" class="cta">Connect with Us</a>
+      <a href="#contact" class="cta">Connect With Me</a>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <div class="content">
       <h2>Request a Quote</h2>
-      
       <form action="https://formspree.io/f/your-id-here" method="POST" class="quote-form">
         <div class="form-row">
           <input type="text" name="name" placeholder="Name" required>
@@ -173,15 +141,14 @@
           <input type="tel" name="phone" placeholder="Phone Number" required>
           <input type="email" name="email" placeholder="Email Address" required>
         </div>
-        <textarea name="message" placeholder="Your Message" required></textarea>
+        <textarea name="message" placeholder="Describe your safety requirements..." required></textarea>
         <button type="submit" class="cta">Send Message</button>
       </form>
-
       <div class="get-in-touch">
         <h3>Get in Touch</h3>
         <p>📍 Midrand, Gauteng, South Africa</p>
-        <p>📞 <a href="tel:+27659364152">+27 65 936 4152</a></p>
-        <p>✉️ <a href="mailto:ziyakhaengineering@gmail.com">ziyakhaengineering@gmail.com</a></p>
+        <p>📞 <a href="tel:+27659364152">+27 65 936 4152</a> | ✉️ ziyakhaengineering@gmail.com</p>
+        <p>Facebook: Ziyakha Engineering</p>
       </div>
     </div>
   </section>
