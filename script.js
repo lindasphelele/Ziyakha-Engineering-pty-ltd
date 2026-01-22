@@ -3,9 +3,7 @@ function toggleMenu() {
     navLinks.classList.toggle('active');
 }
 
-// Resets scroll position to top when "switching" pages
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        window.scrollTo(0, 0);
-    });
+// Reset page view on link click
+window.addEventListener("hashchange", function() {
+    window.scrollTo(0, 0);
 });
