@@ -1,81 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ziyakha Engineering Pty Ltd</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>Ziyakha Engineering Pty Ltd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">ZIYAKHA ENGINEERING</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#partners">Partners</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<div id="bg-layer"></div>
+
+<nav class="action-bar">
+    <div class="menu-icon" id="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
-<!-- HERO / SLIDER -->
+<div class="nav-menu" id="navMenu">
+    <p class="close-btn" id="closeBtn">✕ CLOSE</p>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#partners">Partnerships</a>
+    <a href="#contact">Contact</a>
+</div>
+
 <section id="home" class="hero">
-  <div class="slides">
-    <div class="slide active" style="background-image:url('images/slide1.jpg')"></div>
-    <div class="slide" style="background-image:url('images/slide2.jpg')"></div>
-    <div class="slide" style="background-image:url('images/slide3.jpg')"></div>
+    <div class="hero-content">
+        <h1>Welcome to <br><span>ZIYAKHA ENGINEERING</span></h1>
+    </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    Welcome to ZIYAKHA ENGINEERING, your premier partner in construction
-    engineering consultancy and safety training based in South Africa.
-    We specialize in high-risk environments, ensuring projects are safe,
-    compliant, and successful.
-  </p>
-</section>
+<div class="main-wrapper">
+    
+    <section id="about" class="content-box">
+        <h2>About Us</h2>
+        <p>Welcome to ZIYAKHA ENGINEERING, your premier partner in construction engineering consultancy and safety training based in South Africa. We specialize in high-risk environments, ensuring projects are safe, compliant, and successful.</p>
+        <p>Our mission is to empower businesses with the knowledge and solutions they need to operate seamlessly and efficiently.</p>
+    </section>
 
-<!-- SERVICES -->
-<section id="services" class="section dark">
-  <h2>Our Services</h2>
+    <section id="services" class="content-box">
+        <h2>Our Services</h2>
+        
+        <h3>OHS Training</h3>
+        <p>Accredited safety training modules for Mining, Construction, Heavy-Duty Manufacturing and Industrial environments.</p>
 
-  <h3>OHS Training</h3>
-  <p>
-    Accredited safety training modules for Mining, Construction,
-    Heavy-Duty Manufacturing and Industrial environments.
-  </p>
+        <h3>Construction Materials Consultancy</h3>
+        <div class="grid">
+            <ul>
+                <li>Feasibility Studies</li>
+                <li>Concrete Ready-Mix Plants</li>
+                <li>Aggregate Crushing Plants</li>
+                <li>Brick, Blocks & Pavers Plants</li>
+            </ul>
+            <ul>
+                <li>ISO 9001, 14001, 45001</li>
+                <li>SABS Certification Auditing</li>
+                <li>Mix designs & QA systems</li>
+            </ul>
+        </div>
+    </section>
 
-  <h3>Construction Materials Consultancy</h3>
-  <ul>
-    <li>Feasibility Studies</li>
-    <li>Concrete Ready-Mix Plants</li>
-    <li>Aggregate Crushing Plants</li>
-    <li>Brick, Blocks & Pavers Plants</li>
-    <li>ISO 9001, 14001, 45001 Systems</li>
-  </ul>
-</section>
+    <section id="partners" class="content-box">
+        <h2>Our Partners</h2>
+        <p>Collaborating with industry leaders to provide integrated safety and project management.</p>
+    </section>
 
-<!-- PARTNERS -->
-<section id="partners" class="section">
-  <h2>Our Partners</h2>
-  <div class="logos">
-    <img src="images/partner1.png" alt="Partner">
-    <img src="images/partner2.png" alt="Partner">
-  </div>
-</section>
+    <section id="contact" class="content-box">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>📍 136 2nd ST, Randjespark, Midrand</p>
+            <p>📞 060 332 5170</p>
+            <p>✉️ lindasphelele1@gmail.com</p>
+        </div>
+    </section>
+</div>
 
-<!-- CONTACT -->
-<section id="contact" class="section dark">
-  <h2>Contact Us</h2>
-  <p>Email: info@ziyakhaengineering.co.za</p>
-  <p>Location: South Africa</p>
-</section>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
