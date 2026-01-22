@@ -1,3 +1,5 @@
+/* IF YOU SEE GREY BACKGROUND → CSS IS WORKING */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  scroll-behavior: smooth;
+  background: #eaeaea; /* 🔥 TEST COLOR */
 }
 
 /* ACTION BAR */
@@ -15,7 +17,7 @@ body {
   top: 0;
   width: 100%;
   height: 70px;
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +27,7 @@ body {
 
 .logo {
   color: #00a86b;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -33,19 +35,13 @@ body {
   color: white;
   margin-left: 25px;
   text-decoration: none;
-  font-size: 15px;
-}
-
-.action-bar nav a:hover {
-  color: #00a86b;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  position: relative;
   margin-top: 70px;
-  overflow: hidden;
+  position: relative;
 }
 
 .slide {
@@ -55,7 +51,7 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s;
 }
 
 .slide.active {
@@ -67,10 +63,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   color: white;
-  padding: 30px 40px;
-  text-align: center;
+  padding: 30px;
 }
 
 /* SECTIONS */
@@ -81,8 +76,4 @@ body {
 .section.dark {
   background: #111;
   color: white;
-}
-
-h2 {
-  margin-bottom: 15px;
 }
