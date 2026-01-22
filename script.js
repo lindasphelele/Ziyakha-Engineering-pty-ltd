@@ -1,12 +1,14 @@
 function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('active');
 }
 
-// Optional: Close menu if user clicks outside of it
-window.onclick = function(event) {
-    const navLinks = document.getElementById('navLinks');
-    if (event.target.className === 'section') {
-        navLinks.classList.remove('active');
-    }
-}
+// Ensure buttons and links are hooked up
+document.getElementById('menuBtn').addEventListener('click', toggleMenu);
+document.getElementById('closeBtn').addEventListener('click', toggleMenu);
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+    });
+});
