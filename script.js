@@ -3,7 +3,7 @@ function toggleMenu() {
     navLinks.classList.toggle('active');
 }
 
-// Ensure "page" starts at the top when switching
+// Resets scroll position to top when "switching" pages
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         window.scrollTo(0, 0);
