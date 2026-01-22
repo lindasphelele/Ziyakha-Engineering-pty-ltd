@@ -5,33 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ziyakha Engineering PTY LTD</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Navigation -->
- <nav>
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-  <div class="nav-links" id="navLinks">
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#services" onclick="toggleMenu()">Services</a>
-    <a href="#vision" onclick="toggleMenu()">Vision</a>
-    <a href="#advantage" onclick="toggleMenu()">Advantage</a>
-    <a href="#leadership" onclick="toggleMenu()">Leadership</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-  </div>
-</nav>
+    <div class="nav-links" id="navLinks">
+      <div class="close-menu" onclick="toggleMenu()">&times; Close</div>
+      <a href="#home" onclick="toggleMenu()">Home</a>
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#vision" onclick="toggleMenu()">Vision</a>
+      <a href="#advantage" onclick="toggleMenu()">Advantage</a>
+      <a href="#leadership" onclick="toggleMenu()">Leadership</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </nav>
 
-  <!-- Hero -->
   <section id="home" class="bg1">
     <div class="content">
       <h1>Ziyakha Engineering PTY LTD</h1>
@@ -40,7 +37,6 @@
     </div>
   </section>
 
-  <!-- Services -->
   <section id="services" class="bg2">
     <div class="content">
       <h2>Our Services</h2>
@@ -50,7 +46,6 @@
     </div>
   </section>
 
-  <!-- Vision -->
   <section id="vision" class="bg3">
     <div class="content">
       <h2>Vision & Mission</h2>
@@ -59,7 +54,6 @@
     </div>
   </section>
 
-  <!-- Advantage -->
   <section id="advantage" class="bg4">
     <div class="content">
       <h2>Strategic Advantage</h2>
@@ -67,25 +61,25 @@
     </div>
   </section>
 
-  <!-- Leadership -->
-  <section id="leadership" class="bg5">
-    <div class="content">
+  <section id="leadership" class="bg1"> <div class="content">
       <h2>Leadership</h2>
       <p>CEO: Lehlohonolo Magoete — Inspiring young black female entrepreneur committed to workplace and community safety.</p>
       <p>Partners: We Train Pty Ltd, Dipoho Pty Ltd, Sheq Madotta Pty Ltd</p>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="contact">
     <div class="content">
       <h2>Contact Us</h2>
       <p>Phone: +27 65 936 4152</p>
       <p>Email: ziyakhaengineering@gmail.com</p>
       <p>Facebook: Ziyakha Engineering</p>
+      <br>
       <a href="Ziyakha_Engineering_Profile.pdf" class="cta">Download Company Profile</a>
     </div>
   </section>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
