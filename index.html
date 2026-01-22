@@ -5,47 +5,83 @@
   <title>Ziyakha Engineering Pty Ltd</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 🔥 ABSOLUTE PATH (THIS FIXES EVERYTHING) -->
- <link rel="stylesheet" href="css/styles.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-<header class="action-bar">
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">ZIYAKHA ENGINEERING</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
+<!-- HERO / SLIDER -->
 <section id="home" class="hero">
-  <div class="slide active"
-    style="background-image:url('/Ziyakha-Engineering-pty-ltd/Images/WhatsApp Image 2026-01-20 at 15.48.16 (1).jpeg')"></div>
+  <div class="slides">
+    <div class="slide active" style="background-image:url('images/slide1.jpg')"></div>
+    <div class="slide" style="background-image:url('images/slide2.jpg')"></div>
+    <div class="slide" style="background-image:url('images/slide3.jpg')"></div>
+  </div>
 
-  <div class="slide"
-    style="background-image:url('/Ziyakha-Engineering-pty-ltd/Images/WhatsApp Image 2026-01-20 at 15.48.16 (2).jpeg')"></div>
-
-  <div class="slide"
-    style="background-image:url('/Ziyakha-Engineering-pty-ltd/Images/WhatsApp Image 2026-01-20 at 15.48.16.jpeg')"></div>
+  <div class="hero-text">
+    <h1>ZIYAKHA ENGINEERING</h1>
+    <p>Construction Engineering Consultancy & Safety Training</p>
+  </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section">
   <h2>About Us</h2>
-  <p>Professional engineering consultancy and safety training.</p>
+  <p>
+    Welcome to ZIYAKHA ENGINEERING, your premier partner in construction
+    engineering consultancy and safety training based in South Africa.
+    We specialize in high-risk environments, ensuring projects are safe,
+    compliant, and successful.
+  </p>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="section dark">
-  <h2>Services</h2>
-  <p>OHS Training • Construction • Mining • Manufacturing</p>
+  <h2>Our Services</h2>
+
+  <h3>OHS Training</h3>
+  <p>
+    Accredited safety training modules for Mining, Construction,
+    Heavy-Duty Manufacturing and Industrial environments.
+  </p>
+
+  <h3>Construction Materials Consultancy</h3>
+  <ul>
+    <li>Feasibility Studies</li>
+    <li>Concrete Ready-Mix Plants</li>
+    <li>Aggregate Crushing Plants</li>
+    <li>Brick, Blocks & Pavers Plants</li>
+    <li>ISO 9001, 14001, 45001 Systems</li>
+  </ul>
 </section>
 
-<section id="contact" class="section">
-  <h2>Contact</h2>
+<!-- PARTNERS -->
+<section id="partners" class="section">
+  <h2>Our Partners</h2>
+  <div class="logos">
+    <img src="images/partner1.png" alt="Partner">
+    <img src="images/partner2.png" alt="Partner">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section dark">
+  <h2>Contact Us</h2>
   <p>Email: info@ziyakhaengineering.co.za</p>
+  <p>Location: South Africa</p>
 </section>
-
-<script src="/Ziyakha-Engineering-pty-ltd/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
