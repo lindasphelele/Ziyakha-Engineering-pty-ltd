@@ -6,15 +6,15 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif; /* Professional font */
-  background: #000;
-  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  background: #000; /* Keeping dark background so white text pops */
+  color: #fff; /* White text */
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
 /* --- [FIX] SLIDING BACKGROUND ENGINE --- */
-/* This replaces your .slide classes to ensure images actually rotate */
+/* (NO CHANGES MADE HERE TO PRESERVE YOUR HOME PAGE) */
 #bg-layer {
   position: fixed;
   inset: 0;
@@ -22,7 +22,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* Adjusting filenames to match your GitHub structure */
   animation: slideshow 15s infinite ease-in-out;
 }
 
@@ -32,7 +31,7 @@ body {
   66%, 100% { background-image: url("../Images/WhatsApp Imagess 2026-01-20 at 15.48.17.jpeg"); }
 }
 
-/* --- [FIX] TOP RIGHT ACTION BAR (3 LINES) --- */
+/* --- ACTION BAR (Jade Theme) --- */
 .action-bar {
   position: fixed;
   top: 20px;
@@ -45,17 +44,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: rgba(0, 168, 107, 0.9); /* Your brand green */
+  background: #00A86B; /* Pure Jade */
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid #fff; /* White border for contrast */
 }
 
 .menu-icon span {
   display: block;
   width: 22px;
   height: 2px;
-  background: #fff;
+  background: #fff; /* White menu bars */
   transition: 0.3s;
 }
 
@@ -63,38 +62,41 @@ body {
 .nav-menu {
     position: fixed;
     top: 0;
-    right: -300px; /* This hides it off-screen to the right */
+    right: -300px;
     width: 280px;
     height: 100%;
     background: #0a0a0a;
     transition: 0.4s ease;
-    z-index: 9999; /* High number so it stays on top */
+    z-index: 9999;
 }
 
-/* This class is added by JavaScript when you click the button */
 .nav-menu.active {
     right: 0; 
 }
 
 .nav-menu a {
-  color: white;
+  color: #fff; /* White links */
   text-decoration: none;
   margin-bottom: 20px;
   font-weight: 600;
-  font-size: 0.8rem; /* Smaller, professional font */
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
+.nav-menu a:hover {
+  color: #00A86B; /* Jade on hover */
+}
+
 .close-btn {
   cursor: pointer;
-  color: #00A86B;
+  color: #fff; /* White close button */
   margin-bottom: 30px;
   text-align: right;
   font-weight: bold;
 }
 
-/* --- [FIX] REDUCED FONT SIZES & ONE PAGE LAYOUT --- */
+/* --- HERO & CONTENT --- */
 .hero {
   height: 100vh;
   display: flex;
@@ -104,46 +106,43 @@ body {
 }
 
 .hero h1 {
-  font-size: 1.8rem; /* Reduced from original */
+  font-size: 1.8rem;
   text-shadow: 2px 2px 10px #000;
+  color: #fff; /* White */
 }
 
 .hero h1 span {
-  color: #00A86B;
-}
-
-.main-wrapper {
-  padding: 20px;
+  color: #00A86B; /* Jade Accent */
 }
 
 .content-box {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   padding: 30px;
   border-radius: 10px;
-  border: 1px solid rgba(0, 168, 107, 0.3);
+  border: 1px solid #00A86B; /* Jade Border */
   max-width: 800px;
   margin: 0 auto 40px auto;
 }
 
 h2 {
-  font-size: 1.3rem; /* Reduced for professional look */
-  color: #00A86B;
+  font-size: 1.3rem;
+  color: #fff; /* White Header */
   margin-bottom: 15px;
   text-transform: uppercase;
-  border-bottom: 1px solid #00A86B;
+  border-bottom: 2px solid #00A86B; /* Jade Underline */
   display: inline-block;
 }
 
 h3 {
   font-size: 1rem;
-  color: #00A86B;
+  color: #00A86B; /* Jade Sub-headers */
   margin: 20px 0 10px;
 }
 
 p {
-  font-size: 0.85rem; /* Smaller font for better readability */
-  color: #ccc;
+  font-size: 0.85rem;
+  color: #ffffff; /* Brighter white for readability */
   margin-bottom: 10px;
 }
 
@@ -154,20 +153,17 @@ p {
   gap: 20px;
 }
 
-ul {
-  list-style: none;
-}
-
 li {
   font-size: 0.8rem;
   margin-bottom: 5px;
   padding-left: 15px;
   position: relative;
+  color: #fff;
 }
 
 li::before {
   content: "•";
-  color: #00A86B;
+  color: #00A86B; /* Jade bullet points */
   position: absolute;
   left: 0;
 }
@@ -175,16 +171,11 @@ li::before {
 /* LOGOS */
 .logos img {
   width: 120px;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(200%); /* Keeps logos white/gray */
   transition: 0.3s;
   margin: 10px;
 }
 
 .logos img:hover {
-  filter: grayscale(0%);
-}
-
-@media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 1.4rem; }
+  filter: none; /* Shows original color on hover */
 }
