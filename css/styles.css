@@ -34,73 +34,41 @@ body {
     75%, 100% { background-image: url("../Images/WhatsApp Image 2026-01-20 at 15.48.16 (2).jpeg"); }
 }
 
-/* --- ACTION BAR --- */
 .action-bar {
     position: fixed;
     top: 15px;
     right: 15px;
-    z-index: 2000;
+    z-index: 99999 !important; /* Forces it above everything else */
+    pointer-events: auto !important; /* Ensures it accepts clicks */
 }
 
 .menu-icon {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: #000000; /* Minimalist Black */
-    padding: 8px 10px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.menu-icon span {
+    background: #000;
+    padding: 10px;
     display: block;
-    width: 18px;
-    height: 1.5px;
-    background: #ffffff; 
 }
 
-/* --- SIDEBAR MENU --- */
 .nav-menu {
     position: fixed;
     top: 0;
-    right: -300px;
+    right: -300px; 
     width: 280px;
     height: 100%;
-    background: #ffffff; /* Confirmed: White Sidebar */
-    box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+    background: #ffffff;
+    z-index: 100000 !important; /* Higher than action bar */
     transition: 0.4s ease;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.1);
 }
 
 .nav-menu.active {
-    right: 0; 
+    right: 0;
 }
 
-.nav-menu a {
-    color: #000000;
-    text-decoration: none;
-    margin-bottom: 25px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #555555;
-    padding-left: 5px;
-}
-
-.close-btn {
-    cursor: pointer;
-    color: #000;
-    margin-bottom: 20px;
-    text-align: right;
-    font-weight: 900;
+/* Ensure the background images don't "steal" the click */
+#bg-layer {
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* --- HERO & CONTENT --- */
