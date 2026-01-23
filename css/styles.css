@@ -1,3 +1,26 @@
+.action-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999 !important; /* Forces it to the front */
+    cursor: pointer;
+}
+
+.menu-icon {
+    background: #000; /* Solid black so you can see it on white/images */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 2px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #fff; /* White bars on black background */
+}
 /* --- GLOBAL RESET --- */
 * {
     margin: 0;
