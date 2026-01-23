@@ -7,9 +7,10 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem; /* Base font size reduced */
     background: #ffffff; /* Confirmed: Pure white background */
     color: #333333; 
-    line-height: 1.6;
+    line-height: 1.5;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -36,8 +37,8 @@ body {
 /* --- ACTION BAR --- */
 .action-bar {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     z-index: 2000;
 }
 
@@ -45,17 +46,17 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
     background: #000000; /* Minimalist Black */
-    padding: 12px;
+    padding: 8px 10px;
     border-radius: 4px;
     transition: 0.3s;
 }
 
 .menu-icon span {
     display: block;
-    width: 25px;
-    height: 2px;
+    width: 18px;
+    height: 1.5px;
     background: #ffffff; 
 }
 
@@ -97,7 +98,7 @@ body {
 .close-btn {
     cursor: pointer;
     color: #000;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: right;
     font-weight: 900;
 }
@@ -112,32 +113,38 @@ body {
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Smaller hero title (was 2.5rem) */
     color: #ffffff; 
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.4);
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .content-box {
-    background: #ffffff; /* White content box */
-    padding: 40px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    max-width: 900px;
-    margin: 0 auto 60px auto;
-    border-top: 6px solid #000000; 
+    background: #ffffff;
+    padding: 25px 35px; /* Less vertical padding */
+    max-width: 800px;   /* Slightly narrower */
+    margin: 0 auto 40px auto;
+    border-top: 4px solid #000000; /* Thinner accent line */
+} 
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.1rem; /* Compact section headers (was 1.5rem) */
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
+h3 {
+    font-size: 0.9rem; /* Smaller sub-headers */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 p {
-    font-size: 1rem;
-    color: #444;
+    font-size: 0.85rem; /* Smaller body text */
+    color: #555;
 }
 
 /* --- GRID & LISTS --- */
