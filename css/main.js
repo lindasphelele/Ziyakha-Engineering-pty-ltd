@@ -1,34 +1,20 @@
-/* --- Ziyakha Engineering Sidebar Logic --- */
+window.onload = function() {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('navMenu');
+    const close = document.getElementById('closeBtn');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    console.log("Script loaded successfully"); // Check your browser console (F12)
-
-    if (menuBtn && navMenu && closeBtn) {
-        
-        // OPEN MENU
-        menuBtn.onclick = function() {
-            console.log("Menu button clicked");
-            navMenu.classList.add('active');
+    if (btn && menu) {
+        btn.onclick = function() {
+            menu.classList.add('active');
         };
-
-        // CLOSE MENU
-        closeBtn.onclick = function() {
-            console.log("Close button clicked");
-            navMenu.classList.remove('active');
-        };
-
-        // CLOSE ON LINK CLICK
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.onclick = () => {
-                navMenu.classList.remove('active');
-            };
-        });
-
-    } else {
-        console.error("One or more IDs (menuBtn, navMenu, closeBtn) were not found in the HTML.");
     }
-});
+
+    if (close) {
+        close.onclick = function() {
+            menu.classList.remove('active');
+        };
+    }
+    
+    // Check if script is actually running
+    console.log("Ziyakha Script Active");
+};
