@@ -1,23 +1,17 @@
 window.onload = function() {
-    const btn = document.querySelector('.menu-icon'); // matches your HTML
-    const menu = document.getElementById('navMenu');  // already correct
-    const close = document.getElementById('closeBtn'); // optional if you add a close button
+    const btn = document.getElementById('menu-btn');   // hamburger icon
+    const menu = document.getElementById('navMenu');   // navigation menu
 
+    // Toggle menu when clicking the hamburger icon
     if (btn && menu) {
         btn.onclick = function() {
-            menu.classList.add('active');
+            menu.classList.toggle('active');
         };
     }
 
-    if (close && menu) {
-        close.onclick = function() {
-            menu.classList.remove('active');
-        };
-    }
-
-    // Allow clicking outside menu to close it
+    // Close menu when clicking outside of it
     document.addEventListener('click', function(e) {
-        if (menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+        if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== btn) {
             menu.classList.remove('active');
         }
     });
