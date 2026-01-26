@@ -74,14 +74,12 @@ body {
 .nav-menu {
     position: fixed;
     top: 0;
-    right: -320px; 
-    width: 300px;
+    right: -300px;
+    width: 280px;
     height: 100%;
     background: #ffffff;
-    z-index: 100000;
     transition: 0.4s ease;
-    box-shadow: -10px 0 25px rgba(0,0,0,0.15);
-    padding: 30px 20px;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.1);
 }
 
 .nav-menu.active {
