@@ -29,11 +29,18 @@ body {
 }
 
 @keyframes slideshow {
-background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16.jpeg");
-background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16%20(1).jpeg");
-background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.17.jpeg");
-background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16%20(2).jpeg");
-
+  0%, 20% {
+    background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16.jpeg");
+  }
+  25%, 45% {
+    background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16%20(1).jpeg");
+  }
+  50%, 70% {
+    background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.17.jpeg");
+  }
+  75%, 100% {
+    background-image: url("../Images/WhatsApp%20Image%202026-01-20%20at%2015.48.16%20(2).jpeg");
+  }
 }
 
 /* --- ACTION BAR --- */
