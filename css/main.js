@@ -1,7 +1,7 @@
 window.onload = function() {
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('navMenu');
-    const close = document.getElementById('closeBtn');
+    const btn = document.querySelector('.menu-icon'); // matches your HTML
+    const menu = document.getElementById('navMenu');  // already correct
+    const close = document.getElementById('closeBtn'); // optional if you add a close button
 
     if (btn && menu) {
         btn.onclick = function() {
@@ -9,12 +9,18 @@ window.onload = function() {
         };
     }
 
-    if (close) {
+    if (close && menu) {
         close.onclick = function() {
             menu.classList.remove('active');
         };
     }
-    
-    // Check if script is actually running
+
+    // Allow clicking outside menu to close it
+    document.addEventListener('click', function(e) {
+        if (menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.remove('active');
+        }
+    });
+
     console.log("Ziyakha Script Active");
 };
