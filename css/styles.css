@@ -196,3 +196,6 @@ li::before {
   filter: grayscale(0%);
   opacity: 1;
 }
+#menu-btn { cursor: pointer; }
+.nav-menu i { margin-right: 10px; }
+
