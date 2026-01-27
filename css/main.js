@@ -1,20 +1,14 @@
-window.onload = function() {
-    const btn = document.getElementById('menu-btn');   // hamburger icon
-    const menu = document.getElementById('navMenu');   // navigation menu
+window.onload = function () {
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("navMenu");
 
-    // Toggle menu when clicking the hamburger icon
-    if (btn && menu) {
-        btn.onclick = function() {
-            menu.classList.toggle('active');
-        };
+  btn.onclick = () => menu.classList.toggle("active");
+
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove("active");
     }
+  });
 
-    // Close menu when clicking outside of it
-    document.addEventListener('click', function(e) {
-        if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== btn) {
-            menu.classList.remove('active');
-        }
-    });
-
-    console.log("Ziyakha Script Active");
+  console.log("Ziyakha Script Active");
 };
