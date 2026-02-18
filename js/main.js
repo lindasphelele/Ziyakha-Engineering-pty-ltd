@@ -1,14 +1,17 @@
-window.onload = function () {
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("navMenu");
+// Mobile menu
+const toggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-  btn.onclick = () => menu.classList.toggle("active");
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.remove("active");
-    }
-  });
+// Hero slider
+const slides = document.querySelectorAll('.hero-slides img');
+let index = 0;
 
-  console.log("Ziyakha Script Active");
-};
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 4000);
