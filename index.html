@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Ziyakha Engineering</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
@@ -303,4 +303,83 @@
         <p class="contact-info-title">Reach Us Directly</p>
         <div class="contact-info-item">
           <span class="ci-icon">📞</span>
-          <div><d
+          <div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+27659364152">+27 65 936 4152</a></div></div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-icon">✉</span>
+          <div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:info@ziyakhaengineering.co.za">info@ziyakhaengineering.co.za</a></div></div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-icon">📍</span>
+          <div><div class="ci-label">Address</div><div class="ci-val">136 2nd Street, Randjespark, Midrand</div></div>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-icon">🕐</span>
+          <div><div class="ci-label">Office Hours</div><div class="ci-val">Monday – Friday: 08:00 – 17:00</div></div>
+        </div>
+      </div>
+      <div>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-field"><label>Full Name *</label><input type="text" name="name" placeholder="Your name" required/></div>
+            <div class="form-field"><label>Company</label><input type="text" name="company" placeholder="Your company"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Email *</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+            <div class="form-field"><label>Phone</label><input type="tel" name="phone" placeholder="+27 00 000 0000"/></div>
+          </div>
+          <div class="form-field">
+            <label>Service Required</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>OHS Training</option>
+              <option>Construction Materials Consultancy</option>
+              <option>Equipment Selection &amp; Plant Optimization</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Message *</label><textarea name="message" placeholder="Tell us about your project or enquiry..." required></textarea></div>
+          <button type="submit" class="btn-gold" style="border:none;cursor:none;font-size:13px;">Send Enquiry →</button>
+          <div id="formResponse"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="company-name">Ziyakha<span>.</span></span>
+    <p class="footer-desc">Proudly South African engineering consultancy delivering safety training and construction excellence across high-risk industries.</p>
+    <a href="#" class="btn-gold" onclick="navTo('contact');return false;" style="font-size:11px;padding:10px 20px;">Get a Quote →</a>
+  </div>
+  <div>
+    <p class="footer-col-title">Pages</p>
+    <ul class="footer-links">
+      <li><a href="#" onclick="navTo('home');return false;">Home</a></li>
+      <li><a href="#" onclick="navTo('about');return false;">About Us</a></li>
+      <li><a href="#" onclick="navTo('services');return false;">Services</a></li>
+      <li><a href="#" onclick="navTo('partnerships');return false;">Partnerships</a></li>
+      <li><a href="#" onclick="navTo('affiliations');return false;">Affiliations</a></li>
+      <li><a href="#" onclick="navTo('contact');return false;">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-col-title">Contact</p>
+    <ul class="footer-links">
+      <li><a href="tel:+27659364152">+27 65 936 4152</a></li>
+      <li><a href="mailto:info@ziyakhaengineering.co.za">info@ziyakhaengineering.co.za</a></li>
+      <li><a>136 2nd Street, Randjespark</a></li>
+      <li><a>Midrand, Gauteng</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 Ziyakha Engineering. All rights reserved.</p>
+  <p>Built for excellence — Midrand, South Africa</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
