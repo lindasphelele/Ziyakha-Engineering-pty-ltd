@@ -1,119 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ziyakha Engineering Pty Ltd</title>
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ziyakha Engineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 </head>
-
 <body>
 
-<!-- ================= Navigation ================= -->
-<nav>
-  <div class="logo">
-    <img src="images/logo.png.jpeg" alt="Ziyakha Engineering Logo">
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  📞 +27 65 936 4152 &nbsp;|&nbsp; ✉ info@ziyakhaengineering.co.za &nbsp;|&nbsp; 📍 136 2nd Street, Randjespark, Midrand
+</div>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
   </div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#affiliations">Affiliations</a></li>
-    <li><a href="#contact">Contact</a></li>
+</div>
+
+<!-- NAV OVERLAY -->
+<div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+
+<!-- NAV MENU -->
+<nav class="nav-menu" id="navMenu">
+  <div class="close-btn" onclick="toggleMenu()">×</div>
+  <div class="nav-logo-sm">Ziyakha<span>.</span></div>
+  <ul>
+    <li><a href="#" onclick="showPage('home',this);return false;" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('about',this);return false;">About Us</a></li>
+    <li><a href="#" onclick="showPage('services',this);return false;">Services</a></li>
+    <li><a href="#" onclick="showPage('partnerships',this);return false;">Partnerships</a></li>
+    <li><a href="#" onclick="showPage('affiliations',this);return false;">Affiliations</a></li>
+    <li><a href="#" onclick="showPage('contact',this);return false;">Contact</a></li>
   </ul>
-  <div class="menu-toggle">
-    <i class="fas fa-bars"></i>
+  <div class="nav-contact-info">
+    <div><a href="tel:+27659364152">+27 65 936 4152</a></div>
+    <div><a href="mailto:info@ziyakhaengineering.co.za">info@ziyakhaengineering.co.za</a></div>
+    <div>Randjespark, Midrand</div>
   </div>
 </nav>
 
-<!-- ================= Hero Section ================= -->
-<section id="home" class="hero">
-  <div class="hero-slides">
-    <img src="images/slide1.jpg.jpeg" class="active">
-    <img src="images/slide2.jpg.jpeg">
-    <img src="images/slide3.jpg.jpeg">
-  </div>
-  <div class="hero-content">
-    <h1>Ziyakha Engineering Pty Ltd</h1>
-    <p>Engineering Excellence & Infrastructure Development</p>
-  </div>
-</section>
+<!-- LOGO HEADER -->
+<header class="logo-header">
+  <img src="images/logo.png.jpeg" alt="Ziyakha Engineering Logo" class="logo"
+       onerror="this.style.display='none'"/>
+  <span class="company-name">Ziyakha<span>.</span></span>
+</header>
 
-<!-- ================= About ================= -->
-<section id="about" class="about">
-  <h2>About Us</h2>
-  <div class="about-cards">
-    <div class="card">
-      <i class="fas fa-bullseye"></i>
-      <h3>Mission</h3>
-      <p>To deliver innovative engineering solutions with integrity and excellence.</p>
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="slide-item active" id="slide-0">
+      <img src="images/slide1.jpg.jpeg" alt="Safety Workers"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#2d3a2e,#1a2a1e)'"/>
     </div>
-    <div class="card">
-      <i class="fas fa-eye"></i>
-      <h3>Vision</h3>
-      <p>To be a trusted leader in engineering and infrastructure development.</p>
+    <div class="slide-item" id="slide-1">
+      <img src="images/slide2.jpg.jpeg" alt="Industrial Safety"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#2a2d3a,#1a1e2a)'"/>
     </div>
-    <div class="card">
-      <i class="fas fa-handshake"></i>
-      <h3>Values</h3>
-      <p>Safety, quality, sustainability, and client satisfaction.</p>
+    <div class="slide-item" id="slide-2">
+      <img src="images/slide3.jpg.jpeg" alt="Construction Site"
+           onerror="this.parentElement.style.background='linear-gradient(135deg,#3a2d1a,#2a1e0e)'"/>
     </div>
-  </div>
-</section>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-ticker">
+      <span class="ticker-track">
+        OHS TRAINING &nbsp;◆&nbsp; CONSTRUCTION CONSULTANCY &nbsp;◆&nbsp; PLANT OPTIMIZATION &nbsp;◆&nbsp; SAFETY COMPLIANCE &nbsp;◆&nbsp; QUALITY MANAGEMENT &nbsp;◆&nbsp; SABS CERTIFICATION &nbsp;◆&nbsp; FEASIBILITY STUDIES &nbsp;◆&nbsp; MIX DESIGNS &nbsp;◆&nbsp; &nbsp;
+        OHS TRAINING &nbsp;◆&nbsp; CONSTRUCTION CONSULTANCY &nbsp;◆&nbsp; PLANT OPTIMIZATION &nbsp;◆&nbsp; SAFETY COMPLIANCE &nbsp;◆&nbsp; QUALITY MANAGEMENT &nbsp;◆&nbsp; SABS CERTIFICATION &nbsp;◆&nbsp; FEASIBILITY STUDIES &nbsp;◆&nbsp; MIX DESIGNS &nbsp;◆&nbsp;
+      </span>
+    </div>
+    <div class="hero-text">
+      <p class="hero-eyebrow">Proudly South African — Midrand, Gauteng</p>
+      <h2>Thrive with <em>Strategic</em> &amp;<br>Innovative Solutions</h2>
+      <div class="hero-cta-row">
+        <a href="#" class="btn-gold" onclick="navTo('contact');return false;">Get in Touch →</a>
+        <a href="#" class="btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4);" onclick="navTo('services');return false;">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <div class="hero-dot active" onclick="goSlideHero(0)"></div>
+      <div class="hero-dot" onclick="goSlideHero(1)"></div>
+      <div class="hero-dot" onclick="goSlideHero(2)"></div>
+    </div>
+    <div class="hero-counter" id="heroCounter"><span>01</span> / 03</div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
 
-<!-- ================= Services ================= -->
-<section id="services" class="services">
-  <h2>Our Services</h2>
-  <div class="service-list">
-    <div class="service">Electrical Engineering</div>
-    <div class="service">Civil Engineering</div>
-    <div class="service">Construction Management</div>
-    <div class="service">Maintenance & Installations</div>
-  </div>
-</section>
-
-<!-- ================= Affiliations ================= -->
-<section id="affiliations" class="affiliations">
-  <h2>Affiliations</h2>
-  <div class="affiliation-track">
-    <img src="images/affiliation1.png.jpeg">
-    <img src="images/affiliation2.png.jpeg">
-    <img src="images/affiliation3.png.jpeg">
-    <img src="images/affiliation4.png.jpeg">
-  </div>
-</section>
-
-<!-- ================= Contact ================= -->
-<section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <div class="contact-cards">
-    <div class="contact-card">
-      <i class="fas fa-phone"></i>
-      <p>+27 00 000 0000</p>
-    </div>
-    <div class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <p>info@ziyakha.co.za</p>
+  <div class="marquee-div">
+    <div class="marquee-track-div">
+      <span class="marquee-item-div">OHS Training</span>
+      <span class="marquee-item-div">Construction Consultancy</span>
+      <span class="marquee-item-div">Safety Compliance</span>
+      <span class="marquee-item-div">Plant Optimization</span>
+      <span class="marquee-item-div">Quality Management</span>
+      <span class="marquee-item-div">SABS Certification</span>
+      <span class="marquee-item-div">OHS Training</span>
+      <span class="marquee-item-div">Construction Consultancy</span>
+      <span class="marquee-item-div">Safety Compliance</span>
+      <span class="marquee-item-div">Plant Optimization</span>
+      <span class="marquee-item-div">Quality Management</span>
+      <span class="marquee-item-div">SABS Certification</span>
     </div>
   </div>
 
-  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <section class="welcome">
+    <div class="welcome-content reveal">
+      <p class="section-label">Welcome</p>
+      <h2>Your Trusted<br>Engineering<br><span>Partner</span></h2>
+      <p class="welcome-text">
+        We are your trusted partner in engineering consultancy and safety training, delivering modern solutions that ensure compliance, innovation, and operational excellence across South Africa's high-risk industries.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#" class="btn-gold" onclick="navTo('services');return false;">Explore Services →</a>
+        <a href="#" class="btn-ghost" onclick="navTo('about');return false;">About Us</a>
+      </div>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat-box"><div class="stat-num">15<b>+</b></div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-box"><div class="stat-num">200<b>+</b></div><div class="stat-lbl">Projects Done</div></div>
+      <div class="stat-box"><div class="stat-num">98<b>%</b></div><div class="stat-lbl">Client Satisfaction</div></div>
+      <div class="stat-box"><div class="stat-num">4<b>+</b></div><div class="stat-lbl">Industries Served</div></div>
+    </div>
+  </section>
+</div>
 
-<!-- Main JS -->
-<script src="js/script.js"></script>
-</body>
-</html>
+<!-- SERVICES PAGE -->
+<div class="page" id="page-services">
+  <section class="services-section">
+    <div class="services-head reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Our Services</h2>
+      <p class="services-intro">We provide accredited safety training and consultancy services to ensure compliance, productivity, and operational excellence in high-risk environments.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01 / 03</div>
+        <h3>OHS Training</h3>
+        <p>Accredited safety training modules that enable organizations to function effectively across high-risk sectors.</p>
+        <div class="button-group">
+          <button class="btn-tag">Mining</button>
+          <button class="btn-tag">Construction</button>
+          <button class="btn-tag">Heavy Duty</button>
+          <button class="btn-tag">Manufacturing</button>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02 / 03</div>
+        <h3>Construction Materials Consultancy</h3>
+        <p>Specialists in project, quality, and environmental management for construction materials — from concept to certification.</p>
+        <div class="button-group">
+          <button class="btn-tag">Feasibility Study</button>
+          <button class="btn-tag">Site Selection &amp; EIA</button>
+          <button class="btn-tag">Equipment Selection</button>
+          <button class="btn-tag">Plant Optimization</button>
+          <button class="btn-tag">Raw Materials</button>
+          <button class="btn-tag">Mix Designs &amp; QA</button>
+          <button class="btn-tag">Costing Models</button>
+          <button class="btn-tag">Quality Management</button>
+          <button class="btn-tag">SABS Certification</button>
+          <button class="btn-tag">Internal Auditing</button>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03 / 03</div>
+        <h3>Equipment Selection &amp; Plant Optimization</h3>
+        <p>Helping you choose the right machinery and optimize plant layouts for maximum efficiency and output.</p>
+        <div class="button-group">
+          <button class="btn-tag">Plant Layout Design</button>
+          <button class="btn-tag">Machinery Selection</button>
+          <button class="btn-tag">Efficiency Analysis</button>
+          <button class="btn-tag">Capacity Planning</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <section class="about-section">
+    <div class="reveal">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">About Us</h2>
+      <p class="about-intro">
+        Welcome to <strong>Ziyakha Engineering</strong>, your premier partner in construction engineering consultancy and safety training based in South Africa. We are committed to excellence in high-risk environments, ensuring that your projects are both safe and successful.
+      </p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-item">
+        <span class="about-icon">🎯</span>
+        <h3>Mission Statement</h3>
+        <p>Our mission is to empower businesses with the knowledge and solutions they need to operate seamlessly and efficiently. With a team of seasoned experts, we combine extensive industry insights with innovative strategies, enabling your operations to not only meet compliance standards but also excel in safety and productivity.</p>
+      </div>
+      <div class="about-item">
+        <span class="about-icon">🌍</span>
+        <h3>Vision</h3>
+        <p>We envision a future where engineering and IT solutions drive sustainable growth, ensuring safety, innovation, and resilience across industries. A South Africa built on rigorous standards, skilled people, and world-class infrastructure.</p>
+      </div>
+      <div class="about-item">
+        <span class="about-icon">🤝</span>
+        <h3>Values</h3>
+        <p>Integrity, professionalism, and innovation are at the heart of everything we do. We build trust by delivering excellence and fostering long-term partnerships with clients, communities, and regulatory bodies.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- AFFILIATIONS PAGE -->
+<div class="page" id="page-affiliations">
+  <section class="affiliations-section">
+    <div class="reveal">
+      <p class="section-label">Our Network</p>
+      <h2 class="section-title">Affiliations</h2>
+      <p class="affil-intro">We are affiliated with respected organizations and certification bodies to ensure compliance and excellence in safety and construction standards.</p>
+    </div>
+    <div class="carousel-ribbon reveal">
+      <div class="carousel-track fwd" id="affilRow1">
+        <div class="affil-card"><img src="images/affiliation1.png.jpeg" alt="NYDA" onerror="this.outerHTML='<div class=\'fallback-name\'>NYDA</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation2.png.jpeg" alt="Standard Bank" onerror="this.outerHTML='<div class=\'fallback-name\'>Standard Bank</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation3.png.jpeg" alt="WCW" onerror="this.outerHTML='<div class=\'fallback-name\'>WCW</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation4.png.jpeg" alt="Graça Machel Trust" onerror="this.outerHTML='<div class=\'fallback-name\'>Graça Machel Trust</div>'"/></div>
+        <div class="affil-card"><img src="images/softstart_0.png.png" alt="SoftStart BTI" onerror="this.outerHTML='<div class=\'fallback-name\'>SoftStart BTI</div>'"/></div>
+        <div class="affil-card"><img src="images/ekasi-footer-1.png" alt="Ekasi Labs" onerror="this.outerHTML='<div class=\'fallback-name\'>Ekasi Labs</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation1.png.jpeg" alt="NYDA" onerror="this.outerHTML='<div class=\'fallback-name\'>NYDA</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation2.png.jpeg" alt="Standard Bank" onerror="this.outerHTML='<div class=\'fallback-name\'>Standard Bank</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation3.png.jpeg" alt="WCW" onerror="this.outerHTML='<div class=\'fallback-name\'>WCW</div>'"/></div>
+        <div class="affil-card"><img src="images/affiliation4.png.jpeg" alt="Graça Machel Trust" onerror="this.outerHTML='<div class=\'fallback-name\'>Graça Machel Trust</div>'"/></div>
+        <div class="affil-card"><img src="images/softstart_0.png.png" alt="SoftStart BTI" onerror="this.outerHTML='<div class=\'fallback-name\'>SoftStart BTI</div>'"/></div>
+        <div class="affil-card"><img src="images/ekasi-footer-1.png" alt="Ekasi Labs" onerror="this.outerHTML='<div class=\'fallback-name\'>Ekasi Labs</div>'"/></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PARTNERSHIPS PAGE -->
+<div class="page" id="page-partnerships">
+  <section class="partnerships-section">
+    <div class="reveal">
+      <p class="section-label">Working Together</p>
+      <h2 class="section-title">Partnerships</h2>
+      <p class="partner-intro">We proudly collaborate with leading organizations and participate in programs that empower women and youth in business across South Africa.</p>
+    </div>
+    <div class="partner-carousel reveal">
+      <div class="partner-track" id="partnerTrack">
+        <div class="partner-card">
+          <img src="images/Bakubung-1280x720.png" alt="Bakubung Platinum Mine"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">Bakubung Platinum Mine</div></div>
+          <div class="fallback-bg" style="display:none">Bakubung</div>
+        </div>
+        <div class="partner-card">
+          <img src="images/WhatsApp Image 2026-01-28 at 11.50.12 (1).jpeg" alt="TIMSRAND"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">TIMSRAND</div></div>
+          <div class="fallback-bg" style="display:none">TIMSRAND</div>
+        </div>
+        <div class="partner-card">
+          <img src="images/WhatsApp Image 2026-01-28 at 11.50.12.jpeg" alt="BBCBE"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">BBCBE</div></div>
+          <div class="fallback-bg" style="display:none">BBCBE</div>
+        </div>
+        <div class="partner-card">
+          <img src="images/Bakubung-1280x720.png" alt="Bakubung Platinum Mine"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">Bakubung Platinum Mine</div></div>
+          <div class="fallback-bg" style="display:none">Bakubung</div>
+        </div>
+        <div class="partner-card">
+          <img src="images/WhatsApp Image 2026-01-28 at 11.50.12 (1).jpeg" alt="TIMSRAND"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">TIMSRAND</div></div>
+          <div class="fallback-bg" style="display:none">TIMSRAND</div>
+        </div>
+        <div class="partner-card">
+          <img src="images/WhatsApp Image 2026-01-28 at 11.50.12.jpeg" alt="BBCBE"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="partner-card-overlay"><div class="partner-card-label">BBCBE</div></div>
+          <div class="fallback-bg" style="display:none">BBCBE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <section class="contact-section">
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info-block">
+        <p class="contact-info-title">Reach Us Directly</p>
+        <div class="contact-info-item">
+          <span class="ci-icon">📞</span>
+          <div><d
